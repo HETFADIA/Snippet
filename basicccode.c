@@ -9,22 +9,14 @@ lld max(lld num1, lld num2);
 lld min(lld num1, lld num2);
 // lld * arr = (lld*)malloc(n * sizeof(lld)); 
 void sequence(){
-    lld n;
-    lld sum=0;
-    scanf("%llu",&n);
-    lld * arr = (lld*)malloc(n * sizeof(lld)); 
-    for(lld i=0;i<n;i++){
-        scanf("%llu",&arr[i]);
+    lld a=4;
+    lld *b=&a;
+    printf("%lld",*b);
 
-    }
-    for(lld i=0;i<n-1;i++){
-        sum+=abs(arr[i]-arr[i+1])-1;
-    }
-    printf("%llu\n",sum);
 }
 int main(){
     lld t;
-    scanf("%llu",&t);
+    scanf("%lld",&t);
     while(t--){
         sequence();
     }
