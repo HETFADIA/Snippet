@@ -31,7 +31,7 @@ void sequence(){
             b++;
         }
     }
-    lld a=4;
+    a=4;
     lld *b=&a;
     printf("%lld",*b);
 }
