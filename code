@@ -1,0 +1,40 @@
+def fun(l,theta):
+    if len(l)%2!=0:
+        return -1
+    for i in range(0,len(l),2):
+        if l[i]!=l[i+1]:
+            return -1
+    suma=0
+    for i in range(0,len(l)//2,2):
+        suma+=min(l[i],2*theta)
+    return suma
+for i in range(int(input())):
+    n=int(input())
+    a=list(map(int,input().split()))
+    b=list(map(int,input().split()))
+    a.sort()
+    b.sort()
+    i=0
+    j=0
+    notsame=[]
+    theta=min(a+b)
+    while i<n and j<n:
+        if a[i]<b[j]:
+            notsame.append(a[i])
+            i+=1
+        elif a[i]>b[j]:
+            notsame.append(b[j])
+            j+=1
+        else:
+            i+=1
+            j+=1
+    if i==n:
+        for k in range(j,n):
+            notsame.append(b[k])
+    elif j==n:
+        for k in range(i,n):
+            notsame.append(a[k])
+    print(fun(notsame,theta))
+
+
+
