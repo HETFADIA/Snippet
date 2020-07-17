@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include <stdlib.h>
+#include <limits.h> 
 #include <math.h>
 #define lld long long int
 int cmpfunc (const void * a, const void * b);
@@ -8,6 +9,11 @@ int dcmpfunc (const void * a, const void * b);
 lld max(lld num1, lld num2);
 lld min(lld num1, lld num2);
 lld sumofdigits(lld n);
+struct Node {  
+    int data;  
+    struct Node* next;  
+    struct Node* prev;  
+}; 
 // lld * arr = (lld*)malloc(n * sizeof(lld)); 
 void sequence(){
     lld n;
