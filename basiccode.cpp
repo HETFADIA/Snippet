@@ -36,29 +36,72 @@ void leftswap(vector<lld>&v);
 const lld mod=1e9+7;
 unordered_set<lld>st,ts;
 multimap<lld,lld>mm;
+class Graph{
+    lld vertices;
+    list<lld>*adj;
+    public:
+    Graph(lld vertices){
+        this->vertices=vertices;
+        adj= new list<lld>[vertices];
+    }
+    void addedge(lld v,lld w){
+        adj[v].push_back(w);
 
+    }
+    void dfsutil(lld v, bool visited[]){
+        visited[v]=true;
+        p(v);
+        for(auto it=adj[v].begin();it!=adj[v].end();it++){
+            if(visited[*it]==false){
+                dfsutil(*it,visited);
+            }
+        }
+    }
+    void dfs(lld v){
+        bool *visited= new bool[vertices];
+        for(lld i=0;i<vertices;i++){
+            visited[i]=false;
 
-void sequence(){
-    
-    
+        }
+        dfsutil(v,visited);
+    }
+    void bfs(lld v){
+        bool * visited= new bool[vertices];
+        for(lld i=0;i<vertices;i++){
+            visited[i]=false;
+        }
+        list<lld>queue;
+        queue.push_back(v);
+        visited[v]=true;
+        while(queue.size()!=0){
+            v=queue.front();
+            p(v);
+            queue.pop_front();
+            for(auto it=adj[v].begin();it!=adj[v].end();it++){
+                if(visited[*it]==false){
+                    visited[*it]=true;
+                    queue.push_back(*it);
+                }
+            }
+        }
+    }
+};
 
-
-
-
-    
-}
 int main(){
     het;
+    Graph g(60);
+    g.addedge(4,55);
+    g.addedge(55,13);
+    g.addedge(4,28);
+    g.addedge(4,13);
+    g.addedge(13,50);
 
-    lld t;
+    g.dfs(4);
+
+    p("Now the bfs:");
+    g.bfs(4);
+
     
-    cin>>t;
-    while(t--){
-        sequence();
-    
-    
-    
-} 
 }
 void print(vector<lld>&v){
     for(lld i=0;i<v.size();i++){
@@ -138,4 +181,3 @@ lld sumofdigits(lld n){
     }
     return sum;
 }
-
