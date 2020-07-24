@@ -52,16 +52,19 @@ class Graph{
         visited[w]=false;
 
     }
-    void dfs(lld v){
+    void dfsutil(lld v){
         visited[v]=true;
         p(v);
         for(auto it=adj[v].begin();it!=adj[v].end();it++){
             if(visited[*it]==false){
-                dfs(*it);
+                dfsutil(*it);
             }
         }
     }
-    
+    void dfs(lld v){
+        
+        dfsutil(v);
+    }
     void bfs(lld v){
         list<lld>queue;
         queue.push_back(v);
@@ -86,12 +89,13 @@ class Graph{
 // }
 int main(){
     het;
-    Graph g(60);
+    Graph g(600);
     g.addedge(4,55);
     g.addedge(55,13);
     g.addedge(4,28);
     g.addedge(4,13);
     g.addedge(13,50);
+    g.addedge(13,500);
 
     g.dfs(4);
 
@@ -102,6 +106,7 @@ int main(){
     g.addedge(4,28);
     g.addedge(4,13);
     g.addedge(13,50);
+    g.addedge(13,500);
     g.bfs(4);
 
     
