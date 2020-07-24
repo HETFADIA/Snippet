@@ -52,19 +52,17 @@ class Graph{
         visited[w]=false;
 
     }
-    void dfsutil(lld v){
-        visited[v]=true;
+    void dfs(lld v){
+        
         p(v);
         for(auto it=adj[v].begin();it!=adj[v].end();it++){
             if(visited[*it]==false){
-                dfsutil(*it);
+                dfs(*it);
+                visited[v]=true;
             }
         }
     }
-    void dfs(lld v){
-        
-        dfsutil(v);
-    }
+    
     void bfs(lld v){
         list<lld>queue;
         queue.push_back(v);
