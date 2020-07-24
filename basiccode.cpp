@@ -36,40 +36,33 @@ void leftswap(vector<lld>&v);
 const lld mod=1e9+7;
 unordered_set<lld>st,ts;
 multimap<lld,lld>mm;
+map<lld,bool>visited;
 class Graph{
     lld vertices;
     list<lld>*adj;
     public:
+    
     Graph(lld vertices){
         this->vertices=vertices;
         adj= new list<lld>[vertices];
     }
     void addedge(lld v,lld w){
         adj[v].push_back(w);
+        visited[v]=false;
+        visited[w]=false;
 
     }
-    void dfsutil(lld v, bool visited[]){
+    void dfs(lld v){
         visited[v]=true;
         p(v);
         for(auto it=adj[v].begin();it!=adj[v].end();it++){
             if(visited[*it]==false){
-                dfsutil(*it,visited);
+                dfs(*it);
             }
         }
     }
-    void dfs(lld v){
-        bool *visited= new bool[vertices];
-        for(lld i=0;i<vertices;i++){
-            visited[i]=false;
-
-        }
-        dfsutil(v,visited);
-    }
+    
     void bfs(lld v){
-        bool * visited= new bool[vertices];
-        for(lld i=0;i<vertices;i++){
-            visited[i]=false;
-        }
         list<lld>queue;
         queue.push_back(v);
         visited[v]=true;
@@ -86,7 +79,11 @@ class Graph{
         }
     }
 };
-
+// lld *visited = new lld[5];
+// for(lld i=0;i<5;i++){
+//     visited[i]=0;
+//     ps(visited[i]);
+// }
 int main(){
     het;
     Graph g(60);
@@ -99,6 +96,12 @@ int main(){
     g.dfs(4);
 
     p("Now the bfs:");
+    
+    g.addedge(4,55);
+    g.addedge(55,13);
+    g.addedge(4,28);
+    g.addedge(4,13);
+    g.addedge(13,50);
     g.bfs(4);
 
     
