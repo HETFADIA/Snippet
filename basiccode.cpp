@@ -36,34 +36,38 @@ void leftswap(vector<lld>&v);
 const lld mod=1e9+7;
 unordered_set<lld>st,ts;
 multimap<lld,lld>mm;
-map<lld,bool>visited;
 class Graph{
     lld vertices;
     list<lld>*adj;
     public:
-    
     Graph(lld vertices){
         this->vertices=vertices;
         adj= new list<lld>[vertices];
     }
     void addedge(lld v,lld w){
         adj[v].push_back(w);
-        visited[v]=false;
-        visited[w]=false;
-
     }
-    void dfs(lld v){
-        
+    void dfsutil(lld v, bool visited[]){
+        visited[v]=true;
         p(v);
         for(auto it=adj[v].begin();it!=adj[v].end();it++){
             if(visited[*it]==false){
-                dfs(*it);
-                visited[v]=true;
+                dfsutil(*it,visited);
             }
         }
     }
-    
+    void dfs(lld v){
+        bool *visited= new bool[vertices];
+        for(lld i=0;i<vertices;i++){
+            visited[i]=false;
+        }
+        dfsutil(v,visited);
+    }
     void bfs(lld v){
+        bool * visited= new bool[vertices];
+        for(lld i=0;i<vertices;i++){
+            visited[i]=false;
+        }
         list<lld>queue;
         queue.push_back(v);
         visited[v]=true;
@@ -80,35 +84,60 @@ class Graph{
         }
     }
 };
-// lld *visited = new lld[5];
-// for(lld i=0;i<5;i++){
-//     visited[i]=0;
-//     ps(visited[i]);
-// }
+lld bintodec(lld n);
+string dectobin(lld n);
+lld sgt[400005], lazy[400005];
+
+void se(){
+    
+
+}
 int main(){
     het;
-    Graph g(600);
-    g.addedge(4,55);
-    g.addedge(55,13);
-    g.addedge(4,28);
-    g.addedge(4,13);
-    g.addedge(13,50);
-    g.addedge(13,500);
-
-    g.dfs(4);
-
-    p("Now the bfs:");
+    lld t;
+    cin>>t;
     
-    g.addedge(4,55);
-    g.addedge(55,13);
-    g.addedge(4,28);
-    g.addedge(4,13);
-    g.addedge(13,50);
-    g.addedge(13,500);
-    g.bfs(4);
-
+    while(t--){
+        se();
+    }
     
 }
+lld bintodec(lld n) 
+{ 
+    lld num = n; 
+    lld dec_value = 0; 
+  
+    // Initializing base value to 1, i.e 2^0 
+    lld base = 1; 
+  
+    lld temp = num; 
+    while (temp) { 
+        lld last_digit = temp % 10; 
+        temp = temp / 10; 
+  
+        dec_value += last_digit * base; 
+  
+        base = base * 2; 
+    } 
+  
+    return dec_value; 
+} 
+string dectobin(lld n) 
+{ 
+  
+    //finding the binary form of the number and  
+    //coneverting it to string.  
+    string s = bitset<64> (n).to_string(); 
+      
+    //Finding the first occurance of "1" 
+    //to strip off the leading zeroes. 
+    const auto loc1 = s.find('1'); 
+      
+    if(loc1 != string::npos) 
+        return s.substr(loc1); 
+      
+    return "0";
+} 
 void print(vector<lld>&v){
     for(lld i=0;i<v.size();i++){
         cout<<v[i]<<" ";
