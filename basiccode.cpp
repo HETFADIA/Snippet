@@ -1,4 +1,4 @@
-//https://repl.it/@2019csb1084/SteelblueMiniatureTransfer#main.cpp
+// https://repl.it/@hetrakeshfadia/UnfoldedFlickeringGlitch#main.cpp
 #pragma GCC optimize("O2")
 #include<bits/stdc++.h>
 using namespace std;
@@ -9,6 +9,8 @@ using namespace std;
 #define f first
 #define s second
 #define p(x) cout<<x<<endl;
+#define pn(x) cout<<x<<" ";
+#define ss <<" "<<
 #define all(x) x.begin(),x.end()
 #define dll(x) x.begin(),x.end(),greater<lld>()
 #define vect(x,n) vector<lld>x(n,0);
@@ -18,12 +20,11 @@ using namespace std;
 #define lcm(a,b) (a*b)/gcd(a,b)
 #define lb lower_bound
 #define ub upper_bound
-#define pb(x) push_back(x)
-#define pf(x) push_front(x)
-#define ppb(x) pop_back(x)
-#define ppf(x) pop_front(x)
+#define pb(x) push_back(x);
+#define pf(x) push_front(x);
+#define ppb(x) pop_back(x);
+#define ppf(x) pop_front(x);
 #define mkp(x,y) make_pair(x,y)
-#define rep(i,a,b) for(i=a;i<b;i++) 
 void print(vector<lld>&v);
 lld pow(lld x, lld y);
 lld pow(lld x, lld y, lld p);
@@ -36,61 +37,32 @@ void leftswap(vector<lld>&v);
 const lld mod=1e9+7;
 unordered_set<lld>st,ts;
 multimap<lld,lld>mm;
-class Graph{
-    lld vertices;
-    list<lld>*adj;
-    public:
-    Graph(lld vertices){
-        this->vertices=vertices;
-        adj= new list<lld>[vertices];
-    }
-    void addedge(lld v,lld w){
-        adj[v].push_back(w);
-    }
-    void dfsutil(lld v, bool visited[]){
-        visited[v]=true;
-        p(v);
-        for(auto it=adj[v].begin();it!=adj[v].end();it++){
-            if(visited[*it]==false){
-                dfsutil(*it,visited);
-            }
-        }
-    }
-    void dfs(lld v){
-        bool *visited= new bool[vertices];
-        for(lld i=0;i<vertices;i++){
-            visited[i]=false;
-        }
-        dfsutil(v,visited);
-    }
-    void bfs(lld v){
-        bool * visited= new bool[vertices];
-        for(lld i=0;i<vertices;i++){
-            visited[i]=false;
-        }
-        list<lld>queue;
-        queue.push_back(v);
-        visited[v]=true;
-        while(queue.size()!=0){
-            v=queue.front();
-            p(v);
-            queue.pop_front();
-            for(auto it=adj[v].begin();it!=adj[v].end();it++){
-                if(visited[*it]==false){
-                    visited[*it]=true;
-                    queue.push_back(*it);
-                }
-            }
-        }
-    }
-};
 lld bintodec(lld n);
 string dectobin(lld n);
-lld sgt[400005], lazy[400005];
+void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v);
+void dfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v);
+void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v);
+struct cmpfunc{  
+bool operator()(const long& a,const long& b) const{  
+    return a>b;  
+}  
+}; 
+void se()
+{
 
-void se(){
-    
-
+    unordered_map<lld, set<lld>> adj;
+    unordered_map<lld, lld> visited;
+    lld n;
+    lld edges;
+    cin >> n >> edges;
+    lld a, b;
+    for (lld i = 0; i < edges; i++)
+    {
+        cin >> a >> b;
+        addedge(adj, a, b);
+    }
+    dfs(adj, visited, a);
+    bfs(adj, visited, a);
 }
 int main(){
     het;
@@ -100,7 +72,45 @@ int main(){
     while(t--){
         se();
     }
+    // se();
     
+}
+void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
+{
+    adj[u].insert(v);
+    adj[v].insert(u);
+}
+void dfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v)
+{
+    visited[v] = 1;
+    p(v);
+    for (auto it = adj[v].begin(); it != adj[v].end(); it++)
+    {
+        if (visited[*it] == 0)
+        {
+            dfs(adj, visited, *it);
+        }
+    }
+}
+void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v)
+{
+    visited[v] = 1;
+    queue<lld>q;
+    q.push(v);
+    while(q.empty()==0){
+        lld s=q.front();
+        p(s);
+        q.pop();
+
+        for (auto it = adj[s].begin(); it != adj[s].end(); it++)
+        {
+            if (visited[*it] == 0)
+            {
+                q.push(*it);
+                visited[*it]=1;
+            }
+        }
+    }
 }
 lld bintodec(lld n) 
 { 
