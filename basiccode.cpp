@@ -1,79 +1,55 @@
 // https://repl.it/@hetrakeshfadia/UnfoldedFlickeringGlitch#main.cpp
 #pragma GCC optimize("O2")
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define het ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define het                           \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL);
 #define lld long long int
-#define ll long double
-#define fl float
-#define f first
-#define s second
-#define p(x) cout<<x<<endl;
-#define pn(x) cout<<x<<" ";
-#define ss <<" "<<
-#define all(x) x.begin(),x.end()
-#define dll(x) x.begin(),x.end(),greater<lld>()
-#define vect(x,n) vector<lld>x(n,0);
-#define vector(x) vector<lld>x;
-#define matrix(x,n,m) vector<vector<lld>>x(n,vector<lld>(m,0));
-#define gcd(a,b) __gcd(a,b)
-#define lcm(a,b) (a*b)/gcd(a,b)
+#define p(x) cout << x << "\n";
+#define endl "\n"
+#define all(x) x.begin(), x.end()
+#define dll(x) x.begin(), x.end(), greater<lld>()
+#define vect(x, n) vector<lld> x(n, 0);
+#define matrix(x, n, m) vector<vector<lld>> x(n, vector<lld>(m, 0));
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) (a * b) / gcd(a, b)
 #define lb lower_bound
 #define ub upper_bound
 #define pb(x) push_back(x);
 #define pf(x) push_front(x);
-#define ppb(x) pop_back(x);
-#define ppf(x) pop_front(x);
-#define mkp(x,y) make_pair(x,y)
-void print(vector<lld>&v);
+#define mkp(x, y) make_pair(x, y)
+void print(vector<lld> &v);
 lld pow(lld x, lld y);
 lld pow(lld x, lld y, lld p);
-lld sumofdigits(lld n);
 void swap(lld &x, lld &y);
-void swap(lld &x, lld&y, lld&z);
-void leftswap(lld &x,lld &y,lld&z);
-void swap(vector<lld>&v);
-void leftswap(vector<lld>&v);
-const lld mod=1e9+7;
-unordered_set<lld>st,ts;
-multimap<lld,lld>mm;
+const lld mod = 1e9 + 7;
 lld bintodec(lld n);
 string dectobin(lld n);
 void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v);
 void dfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v);
 void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v);
-struct cmpfunc{  
-bool operator()(const long& a,const long& b) const{  
-    return a>b;  
-}  
-}; 
+struct cmpfunc
+{
+    bool operator()(const long &a, const long &b) const
+    {
+        return a > b;
+    }
+};
 void se()
 {
-
-    unordered_map<lld, set<lld>> adj;
-    unordered_map<lld, lld> visited;
-    lld n;
-    lld edges;
-    cin >> n >> edges;
-    lld a, b;
-    for (lld i = 0; i < edges; i++)
-    {
-        cin >> a >> b;
-        addedge(adj, a, b);
-    }
-    dfs(adj, visited, a);
-    bfs(adj, visited, a);
 }
-int main(){
+int main()
+{
     het;
     lld t;
-    cin>>t;
-    
-    while(t--){
+    cin >> t;
+
+    while (t--)
+    {
         se();
     }
-    // se();
-    
 }
 void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
 {
@@ -95,11 +71,12 @@ void dfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld
 void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v)
 {
     visited[v] = 1;
-    queue<lld>q;
+    queue<lld> q;
     q.push(v);
-    while(q.empty()==0){
-        lld s=q.front();
-        p(s);
+    while (q.empty() == 0)
+    {
+        lld s = q.front();
+        // p(s);
         q.pop();
 
         for (auto it = adj[s].begin(); it != adj[s].end(); it++)
@@ -107,122 +84,91 @@ void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld
             if (visited[*it] == 0)
             {
                 q.push(*it);
-                visited[*it]=1;
+                visited[*it] = 1;
             }
         }
     }
 }
-lld bintodec(lld n) 
-{ 
-    lld num = n; 
-    lld dec_value = 0; 
-  
-    // Initializing base value to 1, i.e 2^0 
-    lld base = 1; 
-  
-    lld temp = num; 
-    while (temp) { 
-        lld last_digit = temp % 10; 
-        temp = temp / 10; 
-  
-        dec_value += last_digit * base; 
-  
-        base = base * 2; 
-    } 
-  
-    return dec_value; 
-} 
-string dectobin(lld n) 
-{ 
-  
-    //finding the binary form of the number and  
-    //coneverting it to string.  
-    string s = bitset<64> (n).to_string(); 
-      
-    //Finding the first occurance of "1" 
-    //to strip off the leading zeroes. 
-    const auto loc1 = s.find('1'); 
-      
-    if(loc1 != string::npos) 
-        return s.substr(loc1); 
-      
+lld bintodec(lld n)
+{
+    lld num = n;
+    lld dec_value = 0;
+
+    // Initializing base value to 1, i.e 2^0
+    lld base = 1;
+
+    lld temp = num;
+    while (temp)
+    {
+        lld last_digit = temp % 10;
+        temp = temp / 10;
+
+        dec_value += last_digit * base;
+
+        base = base * 2;
+    }
+
+    return dec_value;
+}
+string dectobin(lld n)
+{
+
+    //finding the binary form of the number and
+    //coneverting it to string.
+    string s = bitset<64>(n).to_string();
+
+    //Finding the first occurance of "1"
+    //to strip off the leading zeroes.
+    const auto loc1 = s.find('1');
+
+    if (loc1 != string::npos)
+        return s.substr(loc1);
+
     return "0";
-} 
-void print(vector<lld>&v){
-    for(lld i=0;i<v.size();i++){
-        cout<<v[i]<<" ";
-    }
-    p("");
 }
-lld pow(lld x, lld y) { 
-    lld res = 1; 
-    while (y > 0) { 
-        if (y & 1) 
-        res = ((res) * (x)); 
-        y = y >> 1; 
-        x = ((x) * (x)); 
+void print(vector<lld> &v)
+{
+    for (lld i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
     }
-    return res; 
+    // p("");
 }
-lld pow(lld x, lld y, lld p) 
-{ 
-    lld res = 1; // Initialize result 
-  
-    // Update x if it is more than or 
-    // equal to p 
-    x = x % p;  
-  
-    while (y > 0) { 
-        // If y is odd, multiply x with the result 
-        if (y & 1) 
-            res = (res * x) % p; 
-  
-        // y must be even now 
-        y = y >> 1; // y = y/2 
-        x = (x * x) % p; 
-    } 
-    return res; 
-} 
-void swap(lld &x, lld &y){
-    lld temp = x; 
-    x = y; 
+lld pow(lld x, lld y)
+{
+    lld res = 1;
+    while (y > 0)
+    {
+        if (y & 1)
+            res = ((res) * (x));
+        y = y >> 1;
+        x = ((x) * (x));
+    }
+    return res;
+}
+lld pow(lld x, lld y, lld p)
+{
+    lld res = 1; // Initialize result
+
+    // Update x if it is more than or
+    // equal to p
+    x = x % p;
+
+    while (y > 0)
+    {
+        // If y is odd, multiply x with the result
+        if (y & 1)
+            res = (res * x) % p;
+
+        // y must be even now
+        y = y >> 1; // y = y/2
+        x = (x * x) % p;
+    }
+    return res;
+}
+void swap(lld &x, lld &y)
+{
+    lld temp = x;
+    x = y;
     y = temp;
-}
-void swap(lld &x, lld&y, lld&z){
-    lld temp=z;
-    z=y;
-    y=x;
-    x=temp;
-}
-void leftswap(lld &x,lld &y,lld&z){
-    lld temp=x;
-    x=y;
-    y=z;
-    z=temp;
-}
-void swap(vector<lld>&v){
-    // the vector was passed by reference and hence this is fast
-    // this will right swap the vector
-    lld n=v.size();
-    lld temp=v[n-1];
-    for(lld i=n-1;i>0;i--){
-        v[i]=v[i-1];
-    }
-    v[0]=temp;
-}
-void leftswap(vector<lld>&v){
-    lld temp=v[0];
-    lld i;
-    for(i=0;i<v.size()-1;i++){
-        v[i]=v[i+1];
-    }
-    v[i]=temp;
-}
-lld sumofdigits(lld n){
-    lld sum=0;
-    while(n>0){
-        sum+=n%10;
-        n/=10;
-    }
-    return sum;
 }
