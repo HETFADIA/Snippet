@@ -1,9 +1,11 @@
 from collections import defaultdict,OrderedDict
-import sys
+from sys import stdin,stdout
 from bisect import bisect_left,bisect_right
 import numpy as np
 from queue import Queue
 from math import gcd,sqrt,floor,factorial,ceil
+input=stdin.buffer.readline
+print=stdout.write
 adj=defaultdict(set)
 visited=defaultdict(int)
 def cout(a):
