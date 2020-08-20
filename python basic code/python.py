@@ -8,10 +8,6 @@ input=stdin.buffer.readline
 print=stdout.write
 adj=defaultdict(set)
 visited=defaultdict(int)
-def cout(a):
-    return sys.stdout.write(str(a))
-def cin():
-    return sys.stdin.readline()
 def addedge(a,b):
     adj[a].add(b)
     adj[b].add(a)
@@ -34,8 +30,5 @@ def dfs(v,visited):
     print(v)
     for i in adj[v]:
         dfs(i,visited)
-a=cin()
-b=cin()
-cout(int(a)+int(b))
 
 
