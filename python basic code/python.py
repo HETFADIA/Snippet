@@ -4,7 +4,7 @@ from bisect import bisect_left,bisect_right
 import numpy as np
 from queue import Queue
 from math import gcd,sqrt,floor,factorial,ceil
-input=stdin.buffer.readline
+input=stdin.readline
 print=stdout.write
 adj=defaultdict(set)
 visited=defaultdict(int)
