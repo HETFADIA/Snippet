@@ -4,6 +4,8 @@ from bisect import bisect_left,bisect_right
 import numpy as np
 from queue import Queue
 from math import gcd,sqrt,floor,factorial,ceil
+import sys
+sys.setrecursionlimit(10**6)
 input=stdin.readline
 print=stdout.write
 adj=defaultdict(set)
