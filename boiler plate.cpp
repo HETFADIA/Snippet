@@ -146,7 +146,6 @@ void print(vector<lld> &v)
     {
         cout << v[i] << " ";
     }
-    // p("");
 }
 lld pow(lld x, lld y)
 {
@@ -179,10 +178,4 @@ lld pow(lld x, lld y, lld p)
         x = (x * x) % p;
     }
     return res;
-}
-void swap(lld &x, lld &y)
-{
-    lld temp = x;
-    x = y;
-    y = temp;
 }
