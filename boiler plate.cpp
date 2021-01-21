@@ -20,6 +20,9 @@ using namespace std;
 #define pb(x) push_back(x);
 #define pf(x) push_front(x);
 #define mkp(x, y) make_pair(x, y)
+#define f(i,a,b) for(lld i=(a);i<(b);i++)
+#define fr(i,a,b) for(lld i=(b);i>a;i--)
+#define inf 999999
 void print(vector<lld> &v);
 lld pow(lld x, lld y);
 lld pow(lld x, lld y, lld p);
