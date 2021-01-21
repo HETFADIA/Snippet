@@ -11,6 +11,17 @@ using namespace std;
 #define endl "\n"
 #define all(x) x.begin(), x.end()
 #define dll(x) x.begin(), x.end(), greater<lld>()
+#define p(x) cout << x << "\n";
+#define p2(x, y) cout << x << " " << y << "\n";
+#define p3(x, y, z) cout << x << " " << y << " " << z << "\n";
+#define p4(x, y, z, a) cout << x << " " << y << " " << z << " " << a << endl;
+#define p5(x, y, z, a, b) cout << x << " " << y << " " << z << " " << a << " " << b << endl;
+#define ps(x) cout << x << " ";
+#define ps2(x, y) cout << x << " " << y << " ";
+#define ps3(x, y, z) cout << x << " " << y << " " << z << " ";
+#define ps4(x, y, z, a) cout << x << " " << y << " " << z << " " << a << " ";
+#define ps5(x, y, z, a, b) cout << x << " " << y << " " << z << " " << a << " " << b << " ";
+#define pns(x) cout << x;
 #define vect(x, n) vector<lld> x(n, 0);
 #define matrix(x, n, m) vector<vector<lld>> x(n, vector<lld>(m, 0));
 #define gcd(a, b) __gcd(a, b)
