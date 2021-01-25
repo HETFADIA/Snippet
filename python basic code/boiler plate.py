@@ -5,6 +5,8 @@ import numpy as np
 from queue import Queue
 from statistics import median
 from math import gcd,sqrt,floor,factorial,ceil
+import copy
+from copy import deepcopy
 import sys
 sys.setrecursionlimit(10**7)
 import math
