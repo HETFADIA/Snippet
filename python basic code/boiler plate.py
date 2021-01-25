@@ -1,7 +1,7 @@
 from collections import defaultdict,OrderedDict,Counter
 from sys import stdin,stdout
 from bisect import bisect_left,bisect_right
-import numpy as np
+# import numpy as np
 from queue import Queue
 from statistics import median
 from math import gcd,sqrt,floor,factorial,ceil
@@ -49,5 +49,13 @@ def dfs(v,visited):
     print(v)
     for i in adj[v]:
         dfs(i,visited)
-
-
+t=int(input())
+for i in range(t):
+    n,k=map(int,input().split())
+    l=list(map(int,input().split()))
+    l.sort(reverse=True)
+    m=l[:k]
+    number=m[-1]
+    a=l.count(number)
+    b=m.count(number)
+    print(str(ncr(a,b))+"\n")
