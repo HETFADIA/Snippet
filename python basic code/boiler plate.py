@@ -13,6 +13,15 @@ import math
 import os
 import bisect
 import collections
+mod=pow(10,9)+7
+
+def ncr(n, r, p=mod):
+    num = den = 1
+    for i in range(r):
+        num = (num * (n - i)) % p
+        den = (den * (i + 1)) % p
+    return (num * pow(den,
+            p - 2, p)) % p
 input=stdin.readline
 print=stdout.write
 inf=float("inf")
