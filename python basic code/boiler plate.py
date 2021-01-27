@@ -4,7 +4,7 @@ from bisect import bisect_left,bisect_right
 # import numpy as np
 from queue import Queue
 from statistics import median
-from math import gcd,sqrt,floor,factorial,ceil
+from math import gcd,sqrt,floor,factorial,ceil,log2,log10
 import copy
 from copy import deepcopy
 import sys
