@@ -49,6 +49,12 @@ def dfs(v,visited):
     print(v)
     for i in adj[v]:
         dfs(i,visited)
+def get_list():
+    return list(map(int,input().split()))
+def get_str_list():
+    return list(input())
+def get_map():
+    return map(int,input().split())
 t=int(input())
 for i in range(t):
     n,k=map(int,input().split())
