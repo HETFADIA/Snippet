@@ -22,8 +22,8 @@ def ncr(n, r, p=mod):
         den = (den * (i + 1)) % p
     return (num * pow(den,
             p - 2, p)) % p
-input=stdin.readline
-print=stdout.write
+# input=stdin.readline
+# print=stdout.write
 inf=float("inf")
 adj=defaultdict(set)
 visited=defaultdict(int)
@@ -49,19 +49,26 @@ def dfs(v,visited):
     print(v)
     for i in adj[v]:
         dfs(i,visited)
+
+# prime = [True for i in range(n + 1)]
+# def SieveOfEratosthenes(n):
+#     p = 2
+#     while (p * p <= n):
+#         if (prime[p] == True):
+#             for i in range(p * p, n + 1, p):
+#                 prime[i] = False
+#         p += 1
 def get_list():
     return list(map(int,input().split()))
 def get_str_list():
     return list(input())
 def get_map():
     return map(int,input().split())
+def get_int():
+    return int(input())
 t=int(input())
+# t=1
 for i in range(t):
-    n,k=map(int,input().split())
-    l=list(map(int,input().split()))
-    l.sort(reverse=True)
-    m=l[:k]
-    number=m[-1]
-    a=l.count(number)
-    b=m.count(number)
-    print(str(ncr(a,b))+"\n")
+    n=get_int();
+    l=get_list();
+
