@@ -2,7 +2,8 @@ from collections import defaultdict,OrderedDict,Counter
 from sys import stdin,stdout
 from bisect import bisect_left,bisect_right
 # import numpy as np
-from queue import Queue
+from queue import Queue,PriorityQueue
+from heapq import heapify,heappop,heappush
 from statistics import median
 from math import gcd,sqrt,floor,factorial,ceil,log2,log10
 import copy
@@ -49,8 +50,8 @@ def dfs(v,visited):
     print(v)
     for i in adj[v]:
         dfs(i,visited)
-
-# prime = [True for i in range(n + 1)]
+# a9=pow(10,6)+10
+# prime = [True for i in range(a9 + 1)]
 # def SieveOfEratosthenes(n):
 #     p = 2
 #     while (p * p <= n):
@@ -67,8 +68,56 @@ def get_map():
 def get_int():
     return int(input())
 t=int(input())
-# t=1
 for i in range(t):
-    n=get_int();
+    n=int(input())
     l=get_list();
+    q=PriorityQueue()
+    for i in range(1,n):
+        index=i+1
+        tuple=(l[i],index)
+        q.put(tuple)
+    flag=True;
+    ans=[[] for i in range(2*n)]
+    count=0
+    while q.empty()==0:
+        begin1=q.get_nowait();
+        value1=begin1[0]
+        index1=begin1[1]
+        if q.qsize():
+            begin2=q.get_nowait();
+            value2=begin2[0]
+            index2=begin2[1]
+        else:
+            begin2=None;
+            value2=None;
+            index2=None;
+        if value1>l[0]:
+            if begin2==None:
+                flag=False
+                break;
+            diff=value1-l[0];
+            ans[count].append(index1)
+            ans[count].append(index2)
+            ans[count].append(diff)
+            count+=1
+            value1 -= diff;
+            value2+=diff;
+            begin1=(value1,index1)
+            begin2=(value2,index2)
+            q.put(begin1)
+            q.put(begin2)
+        else:
+            ans[count].append(index1)
+            ans[count].append(1)
+            ans[count].append(value1)
+            count+=1
+            l[0]+=value1
+            if begin2:
+                q.put(begin2)
+    if flag:
+        print(count)
+        for j in range(count):
+            print(*ans[j])
+    else:
+        print(-1)
 
