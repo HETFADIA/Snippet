@@ -15,7 +15,8 @@ import os
 import bisect
 import collections
 mod=pow(10,9)+7
-
+import random
+from random import random,randint,randrange
 def ncr(n, r, p=mod):
     num = den = 1
     for i in range(r):
@@ -59,6 +60,7 @@ def dfs(v,visited):
 #             for i in range(p * p, n + 1, p):
 #                 prime[i] = False
 #         p += 1
+
 def get_list():
     return list(map(int,input().split()))
 def get_str_list():
