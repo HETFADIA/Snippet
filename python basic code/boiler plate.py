@@ -64,8 +64,7 @@ def dfs(v,visited):
 def get_list():
     return list(map(int,input().split()))
 def get_list_using_map():
-    a=list(input())
-    return [int(i) for i in a]
+    return [int(i) for i in list(input())]
 def get_str_list():
     return list(input())
 def get_map():
@@ -78,5 +77,5 @@ ns="No"
 ys="Yes"
 t=get_int()
 for i in range(t):
-    l=get_list_using_map()
-    print(l)
+    matrix=[get_list_using_map() for i in range(9)]
+    print(matrix)
