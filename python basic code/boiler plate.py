@@ -63,6 +63,9 @@ def dfs(v,visited):
 
 def get_list():
     return list(map(int,input().split()))
+def get_list_using_map():
+    a=list(input())
+    return [int(i) for i in a]
 def get_str_list():
     return list(input())
 def get_map():
@@ -75,14 +78,5 @@ ns="No"
 ys="Yes"
 t=get_int()
 for i in range(t):
-    q,d=get_map()
-    l=get_list();
-    strd=str(d)
-    n=len(l)
-    for i in range(n):
-        while strd not in str(l[i]):
-            l[i]-=d;
-        if l[i]<0:
-            print("NO")
-        else:
-            print("YES")
+    l=get_list_using_map()
+    print(l)
