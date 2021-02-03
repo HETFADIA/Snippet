@@ -60,7 +60,30 @@ def dfs(v,visited):
 #             for i in range(p * p, n + 1, p):
 #                 prime[i] = False
 #         p += 1
-
+def reverse_bisect_right(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo+hi)//2
+        if x > a[mid]:
+            hi = mid
+        else:
+            lo = mid+1
+    return lo
+def reverse_bisect_left(a, x, lo=0, hi=None):
+    if lo < 0:
+        raise ValueError('lo must be non-negative')
+    if hi is None:
+        hi = len(a)
+    while lo < hi:
+        mid = (lo+hi)//2
+        if x >= a[mid]:
+            hi = mid
+        else:
+            lo = mid+1
+    return lo
 def get_list():
     return list(map(int,input().split()))
 def get_str_list_in_int():
@@ -71,6 +94,8 @@ def get_map():
     return map(int,input().split())
 def get_int():
     return int(input())
+def matrix(a,b):
+    return [[0 for i in range(b)] for j in range(a)]
 def swap(a,b):
     return b,a
 def get_gcd(l):
@@ -86,4 +111,24 @@ ys="Yes"
 t=1;
 for i in range(t):
     r,c=get_map();
-    
+    if r==1 and c==1:
+        print("0")
+    elif r<c:
+        l=matrix(r,c)
+        for i in range(r):
+            for j in range(c):
+                a=i+1;
+                b=r+c-j;
+                l[i][j]=a*b;
+        for i in l:
+            print(*i)
+    else:
+        l=matrix(r,c)
+        for i in range(r):
+            for j in range(c):
+                a=j+1;
+                b=r+c-i;
+                l[i][j]=a*b;
+        for i in l:
+            print(*i)
+
