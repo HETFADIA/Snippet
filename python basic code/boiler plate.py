@@ -199,13 +199,13 @@ def get_str_list():
     return list(input())
 def get_map():
     return map(int,input().split())
-def get_int():
+def input_int():
     return int(input())
 def matrix(a,b):
     return [[0 for i in range(b)] for j in range(a)]
 def swap(a,b):
     return b,a
-def get_gcd(l):
+def find_gcd(l):
     a=l[0]
     for i in range(len(l)):
         a=gcd(a,l[i])
@@ -214,28 +214,10 @@ nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
-# t=get_int()
 t=1;
+t=input_int()
 for i in range(t):
-    r,c=get_map();
-    if r==1 and c==1:
-        print("0")
-    elif r<c:
-        l=matrix(r,c)
-        for i in range(r):
-            for j in range(c):
-                a=i+1;
-                b=r+c-j;
-                l[i][j]=a*b;
-        for i in l:
-            print(*i)
-    else:
-        l=matrix(r,c)
-        for i in range(r):
-            for j in range(c):
-                a=j+1;
-                b=r+c-i;
-                l[i][j]=a*b;
-        for i in l:
-            print(*i)
-
+    n=input_int()
+    l=get_list();
+    dict=defaultdict(int)
+    
