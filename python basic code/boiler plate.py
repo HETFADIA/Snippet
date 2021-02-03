@@ -210,14 +210,35 @@ def find_gcd(l):
     for i in range(len(l)):
         a=gcd(a,l[i])
     return a;
+def is_prime(n):
+    sqrta=int(sqrt(n))
+    for i in range(2,sqrta+1):
+        if n%i==0:
+            return 0;
+    return 1;
+def prime_factors(n):
+    sqrta = int(sqrt(n))
+    for i in range(2,sqrta+1):
+        if n%i==0:
+            return [i]+prime_factors(n//i)
+    return [n]
 nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
 t=1;
-t=input_int()
+# t=input_int()
 for i in range(t):
     n=input_int()
-    l=get_list();
-    dict=defaultdict(int)
-    
+    if is_prime(n):
+        print(n)
+        continue
+    fac=prime_factors(n)
+    dict=Counter(fac)
+    lena=len(dict)
+    if len(dict)>1:
+        print(1)
+    else:
+        print(list(dict)[0])
+
+
