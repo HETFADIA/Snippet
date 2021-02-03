@@ -71,11 +71,44 @@ def get_map():
     return map(int,input().split())
 def get_int():
     return int(input())
+def swap(a,b):
+    return b,a
+def get_gcd():
+    a=l[0]
+    for i in range(len(l)):
+        a=gcd(a,l[i])
+    return a;
 nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
-t=get_int()
+# t=get_int()
+t=1;
 for i in range(t):
-    n,k=get_map()
-    l=get_str_list_in_int()
+    n=get_int();
+    l=get_list();
+    dict=Counter(l)
+    friend=1;
+    arr=[]
+    repeted_arr=[]
+    for i in range(n):
+        if not l[i]:
+            arr.append(i)
+            while friend in dict:
+                friend+=1
+            if friend==i+1:
+                repeted_arr.append(i)
+            dict[friend]=1
+            l[i]=friend
+    if len(repeted_arr)==1:
+        index1=repeted_arr[-1]
+        the_index=0
+        index2=arr[the_index]
+        while index2==index1:
+            the_index+=1
+            index2=arr[the_index]
+        l[index1],l[index2]=swap(l[index1],l[index2])
+    else:
+        for index in range(len(repeted_arr)-1):
+            l[repeted_arr[index]],l[repeted_arr[index+1]]=l[repeted_arr[index+1]],l[repeted_arr[index]]
+    print(*l)
