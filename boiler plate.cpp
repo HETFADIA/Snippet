@@ -211,7 +211,17 @@ string yc = "YES";
 string ys = "Yes";
 void fun()
 {
-    
+    lld n;
+    cin >> n;
+    lld a;
+    cin >> a;
+    string s = to_string(a);
+    vector<char> v1(n);
+    vector<char> v2(n);
+    for (lld i = 0; i < n; i++)
+    {
+        v1[i] =
+    }
 }
 int main()
 {
