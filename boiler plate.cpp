@@ -34,6 +34,51 @@ using namespace std;
 #define fr(i, a, b) for (lld i = (b); i > a; i--)
 #define inf 999999
 #define pll pair<lld, lld>
+void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
+{
+    adj[u].insert(v);
+    adj[v].insert(u);
+}
+void dfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v)
+{
+    visited[v] = 1;
+    p(v);
+    for (auto it = adj[v].begin(); it != adj[v].end(); it++)
+    {
+        if (visited[*it] == 0)
+        {
+            dfs(adj, visited, *it);
+        }
+    }
+}
+void bfs(unordered_map<lld, set<lld>> &adj, unordered_map<lld, lld> visited, lld v)
+{
+    visited[v] = 1;
+    queue<lld> q;
+    q.push(v);
+    while (q.empty() == 0)
+    {
+        lld s = q.front();
+        // p(s);
+        q.pop();
+
+        for (auto it = adj[s].begin(); it != adj[s].end(); it++)
+        {
+            if (visited[*it] == 0)
+            {
+                q.push(*it);
+                visited[*it] = 1;
+            }
+        }
+    }
+}
+struct cmpfunc
+{
+    bool operator()(const long &a, const long &b) const
+    {
+        return a > b;
+    }
+};
 lld pow(lld x, lld y, lld p)
 {
     lld res = 1; // Initialize result
@@ -53,6 +98,55 @@ lld pow(lld x, lld y, lld p)
         x = (x * x) % p;
     }
     return res;
+}
+lld pow(lld x, lld y)
+{
+    lld res = 1;
+    while (y > 0)
+    {
+        if (y & 1)
+            res = ((res) * (x));
+        y = y >> 1;
+        x = ((x) * (x));
+    }
+    return res;
+}
+lld bintodec(lld n)
+{
+    lld num = n;
+    lld dec_value = 0;
+
+    // Initializing base value to 1, i.e 2^0
+    lld base = 1;
+
+    lld temp = num;
+    while (temp)
+    {
+        lld last_digit = temp % 10;
+        temp = temp / 10;
+
+        dec_value += last_digit * base;
+
+        base = base * 2;
+    }
+
+    return dec_value;
+}
+string dectobin(lld n)
+{
+
+    //finding the binary form of the number and
+    //coneverting it to string.
+    string s = bitset<64>(n).to_string();
+
+    //Finding the first occurance of "1"
+    //to strip off the leading zeroes.
+    const auto loc1 = s.find('1');
+
+    if (loc1 != string::npos)
+        return s.substr(loc1);
+
+    return "0";
 }
 void print(vector<lld> &v)
 {
@@ -117,76 +211,7 @@ string yc = "YES";
 string ys = "Yes";
 void fun()
 {
-    lld n;
-    cin >> n;
-    string a;
-    string b;
-    cin >> a;
-    cin >> b;
-    unordered_map<char, lld> um = Counter(a + b);
-    for (auto i : um)
-    {
-        if (i.second % 2 != 0)
-        {
-            p(-1);
-            return;
-        }
-    }
-    vector<lld> ab;
-    vector<lld> ba;
-    for (lld i = 0; i < n; i++)
-    {
-        if (a[i] == b[i])
-        {
-            continue;
-        }
-        else if (a[i] == 'a' && b[i] == 'b')
-        {
-            ab.pb(i);
-        }
-        else
-        {
-            ba.pb(i);
-        }
-    }
-    lld count = 0;
-    vector<pll> answer;
-    while (ab.size() > 1)
-    {
-        lld siza = ab.size();
-        pll tuple = {ab[siza - 1], ab[siza - 2]};
-        answer.pb(tuple);
-        ab.pop_back();
-        ab.pop_back();
-    }
-    while (ba.size() > 1)
-    {
-        lld siza = ba.size();
-        pll tuple = {ba[siza - 1], ba[siza - 2]};
-        answer.pb(tuple);
-        ba.pop_back();
-        ba.pop_back();
-    }
-    if (ab.size() == 0 && ba.size() == 0)
-    {
-        p(answer.size());
-        for (lld i = 0; i < answer.size(); i++)
-        {
-            p2(answer[i].first + 1, 1 + answer[i].second);
-        }
-    }
-    else
-    {
-        pll tuple = {ab[0], ab[0]};
-        answer.pb(tuple);
-        tuple = {ab[0], ba[0]};
-        answer.pb(tuple);
-        p(answer.size());
-        for (lld i = 0; i < answer.size(); i++)
-        {
-            p2(answer[i].first + 1, 1 + answer[i].second);
-        }
-    }
+    
 }
 int main()
 {
