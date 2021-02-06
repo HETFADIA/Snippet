@@ -60,7 +60,7 @@ void print(vector<lld> &v)
     {
         cout << v[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
 // const lld a3=1000000;
 // bool prime[a3 + 1];
@@ -79,76 +79,121 @@ void print(vector<lld> &v)
 //         }
 //     }
 // }
-void Counter(vector<lld>&v,unordered_map<lld,lld>&um){
-    for(int i:v){
-        um[i]+=1;
+void Counter(vector<lld> &v, unordered_map<lld, lld> &um)
+{
+    for (int i : v)
+    {
+        um[i] += 1;
     }
 }
-unordered_map<lld,lld> Counter(vector<lld>&v){
-    unordered_map<lld,lld>um;
-    for(int i:v){
-        um[i]+=1;
+unordered_map<lld, lld> Counter(vector<lld> &v)
+{
+    unordered_map<lld, lld> um;
+    for (int i : v)
+    {
+        um[i] += 1;
     }
     return um;
 }
-void get_list(vector<lld>&v){
-    for(lld i=0;i<v.size();i++){
-        cin>>v[i];
+unordered_map<char, lld> Counter(string a)
+{
+    unordered_map<char, lld> um;
+    for (char i : a)
+    {
+        um[i] += 1;
+    }
+    return um;
+}
+void get_list(vector<lld> &v)
+{
+    for (lld i = 0; i < v.size(); i++)
+    {
+        cin >> v[i];
     }
 }
-string nc="NO";
-string ns="No";
-string yc="YES";
-string ys="Yes";
+string nc = "NO";
+string ns = "No";
+string yc = "YES";
+string ys = "Yes";
 void fun()
 {
     lld n;
     cin >> n;
-    vector<lld>v(2*n);
-    get_list(v);
-    unordered_map<lld,lld> um;
-    Counter(v,um);
-    for(auto it=um.begin();it!=um.end();it++){
-        if(it->second!=2){
-            p(nc);
+    string a;
+    string b;
+    cin >> a;
+    cin >> b;
+    unordered_map<char, lld> um = Counter(a + b);
+    for (auto i : um)
+    {
+        if (i.second % 2 != 0)
+        {
+            p(-1);
             return;
         }
     }
-    sort(v.rbegin(),v.rend());
-    vector<lld>original;
-    lld n_copy=2*n;
-    lld suma=0;
-    for(lld i=0;i<2*n;i+=2){
-        lld element=v[i]-2*suma;
-        if(element%n_copy!=0){
-            p(nc);
-            return;
+    vector<lld> ab;
+    vector<lld> ba;
+    for (lld i = 0; i < n; i++)
+    {
+        if (a[i] == b[i])
+        {
+            continue;
         }
-        element=element/n_copy;
-        suma+=element;
-        n_copy-=2;
-        original.pb(element);
-    }
-    for(lld i=0;i<original.size();i++){
-        if(original[i]<=0){
-            p(nc);
-            return;
+        else if (a[i] == 'a' && b[i] == 'b')
+        {
+            ab.pb(i);
+        }
+        else
+        {
+            ba.pb(i);
         }
     }
-    um=Counter(original);
-    if(um.size()<original.size()){
-        p(nc);
-        return;
+    lld count = 0;
+    vector<pll> answer;
+    while (ab.size() > 1)
+    {
+        lld siza = ab.size();
+        pll tuple = {ab[siza - 1], ab[siza - 2]};
+        answer.pb(tuple);
+        ab.pop_back();
+        ab.pop_back();
     }
-    p(yc);
-    return;
-
+    while (ba.size() > 1)
+    {
+        lld siza = ba.size();
+        pll tuple = {ba[siza - 1], ba[siza - 2]};
+        answer.pb(tuple);
+        ba.pop_back();
+        ba.pop_back();
+    }
+    if (ab.size() == 0 && ba.size() == 0)
+    {
+        p(answer.size());
+        for (lld i = 0; i < answer.size(); i++)
+        {
+            p2(answer[i].first + 1, 1 + answer[i].second);
+        }
+    }
+    else
+    {
+        pll tuple = {ab[0], ab[0]};
+        answer.pb(tuple);
+        tuple = {ab[0], ba[0]};
+        answer.pb(tuple);
+        p(answer.size());
+        for (lld i = 0; i < answer.size(); i++)
+        {
+            p2(answer[i].first + 1, 1 + answer[i].second);
+        }
+    }
 }
 int main()
 {
     fastio;
     lld t;
     cin >> t;
+    // t=1;
     while (t--)
     {
         fun();
