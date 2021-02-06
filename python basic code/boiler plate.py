@@ -6,6 +6,7 @@ from queue import Queue,PriorityQueue
 from heapq import heapify,heappop,heappush
 from statistics import median
 from math import gcd,sqrt,floor,factorial,ceil,log2,log10
+import fractions
 import copy
 from copy import deepcopy
 import sys
@@ -24,6 +25,15 @@ def ncr(n, r, p=mod):
         den = (den * (i + 1)) % p
     return (num * pow(den,
             p - 2, p)) % p
+def normalncr(n,r):
+    r=min(r,n-r)
+    count=1;
+    for i in range(n-r,n+1):
+        count*=i;
+
+    for i in range(1,r+1):
+        count//=i;
+    return count
 # input=stdin.readline
 # print=stdout.write
 inf=float("inf")
@@ -88,7 +98,7 @@ def reverse_bisect_left(a, x, lo=0, hi=None):
 
 class MaxHeap:
 
-    def __init__(self, maxsize):
+    def _init_(self, maxsize):
 
         self.maxsize = maxsize
         self.size = 0
@@ -162,6 +172,7 @@ class MaxHeap:
         self.maxHeapify(self.FRONT)
 
         return popped
+
 def get_list():
     return list(map(int,input().split()))
 def get_str_list_in_int():
@@ -197,19 +208,8 @@ nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
-t=1;
-# t=input_int()
+
+t=input_int()
+
 for i in range(t):
-    n=input_int()
-    if is_prime(n):
-        print(n)
-        continue
-    fac=prime_factors(n)
-    dict=Counter(fac)
-    lena=len(dict)
-    if len(dict)>1:
-        print(1)
-    else:
-        print(list(dict)[0])
-
-
+    n=int(input())
