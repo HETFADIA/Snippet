@@ -34,8 +34,7 @@ def normalncr(n,r):
     for i in range(1,r+1):
         count//=i;
     return count
-# input=stdin.readline
-# print=stdout.write
+
 inf=float("inf")
 adj=defaultdict(set)
 visited=defaultdict(int)
@@ -70,6 +69,11 @@ def dfs(v,visited):
 #             for i in range(p * p, n + 1, p):
 #                 prime[i] = False
 #         p += 1
+# SieveOfEratosthenes(a9)
+# prime_number=[]
+# for i in range(2,a9):
+#     if prime[i]:
+#         prime_number.append(i)
 def reverse_bisect_right(a, x, lo=0, hi=None):
     if lo < 0:
         raise ValueError('lo must be non-negative')
@@ -209,7 +213,13 @@ yc="YES"
 ns="No"
 ys="Yes"
 
-t=input_int()
-
+# t=input_int()
+# input=stdin.readline
+# print=stdout.write
+t=1;
 for i in range(t):
-    n=int(input())
+    
+
+
+
+
