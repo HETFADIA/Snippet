@@ -212,6 +212,30 @@ void ignore(lld a)
     p(a);
 #endif
 }
+void ignore(lld a, lld b)
+{
+#ifndef ONLINE_JUDGE
+    p2(a, b);
+#endif
+}
+void ignore(lld a, lld b, lld c)
+{
+#ifndef ONLINE_JUDGE
+    p3(a, b, c);
+#endif
+}
+void ignore(lld a, lld b, lld c, lld d)
+{
+#ifndef ONLINE_JUDGE
+    p4(a, b, c, d);
+#endif
+}
+void ignore(lld a, lld b, lld c, lld d, lld e)
+{
+#ifndef ONLINE_JUDGE
+    p5(a, b, c, d, e);
+#endif
+}
 
 string nc = "NO";
 string ns = "No";
