@@ -1,11 +1,12 @@
 #pragma GCC optimize("O2")
 #include <bits/stdc++.h>
 using namespace std;
+using namespace chrono;
 #define fastio                        \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);                    \
     cout.tie(NULL);
-#define lld long long
+#define int long long
 #define lld long long
 #define p(x) cout << x << "\n";
 #define p2(x, y) cout << x << " " << y << "\n";
@@ -32,7 +33,7 @@ using namespace std;
 #define mkp(x, y) make_pair(x, y)
 #define f(i, a, b) for (lld i = (a); i < (b); i++)
 #define fr(i, a, b) for (lld i = (b); i > a; i--)
-#define inf 999999
+#define inf 999999999999999
 #define pll pair<lld, lld>
 void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
 {
@@ -213,19 +214,38 @@ void fun()
 {
     lld n;
     cin >> n;
-    lld a;
-    cin >> a;
-    string s = to_string(a);
-    vector<char> v1(n);
-    vector<char> v2(n);
-    for (lld i = 0; i < n; i++)
+    lld k;
+    cin >> k;
+    vector<lld> v(n);
+    f(i, 0, n)
     {
-        v1[i] =
+        cin >> v[i];
     }
+    lld first = 0;
+    lld second = k;
+    lld difference = inf;
+    lld x = 0;
+    while (second < n)
+    {
+        lld first_no = v[first];
+        lld second_no = v[second];
+        lld mean = (first_no + second_no) / 2;
+        lld max_diff = max(mean - first_no, abs(mean - second_no));
+        if (max_diff < difference)
+        {
+            difference = max_diff;
+            x = mean;
+        }
+        first++;
+        second++;
+    }
+    p(x);
 }
-int main()
+signed main()
 {
     fastio;
+    auto start1 = high_resolution_clock::now();
+
     lld t;
     cin >> t;
     // t=1;
@@ -233,4 +253,11 @@ int main()
     {
         fun();
     }
+
+    auto stop1 = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop1 - start1);
+#ifndef ONLINE_JUDGE
+    cerr << "Time: " << duration.count() / 1000.0 << endl;
+    cout << duration.count() / 1000.0 << endl;
+#endif
 }
