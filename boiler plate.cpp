@@ -206,6 +206,13 @@ void get_list(vector<lld> &v)
         cin >> v[i];
     }
 }
+void ignore(lld a)
+{
+#ifndef ONLINE_JUDGE
+    p(a);
+#endif
+}
+
 string nc = "NO";
 string ns = "No";
 string yc = "YES";
