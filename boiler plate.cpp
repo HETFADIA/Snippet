@@ -236,41 +236,39 @@ void ignore(lld a, lld b, lld c, lld d, lld e)
     p5(a, b, c, d, e);
 #endif
 }
-
+lld kth_no_not_divisible_by_n(lld n, lld k)
+{
+    return k + (k - 1) / (n - 1);
+}
+lld ceil(lld a, lld n)
+{
+    if (a % n == 0)
+    {
+        return a / n;
+    }
+    return a / n + 1;
+}
 string nc = "NO";
 string ns = "No";
 string yc = "YES";
 string ys = "Yes";
 void fun()
 {
-    lld n;
-    cin >> n;
-    lld k;
-    cin >> k;
-    vector<lld> v(n);
-    f(i, 0, n)
+    lld n, k;
+    cin >> n >> k;
+    if (n % 2 == 0)
     {
-        cin >> v[i];
+        k = k % n;
+        k = k == 0 ? n : k;
+        p(k);
     }
-    lld first = 0;
-    lld second = k;
-    lld difference = inf;
-    lld x = 0;
-    while (second < n)
+    else
     {
-        lld first_no = v[first];
-        lld second_no = v[second];
-        lld mean = (first_no + second_no) / 2;
-        lld max_diff = max(mean - first_no, abs(mean - second_no));
-        if (max_diff < difference)
-        {
-            difference = max_diff;
-            x = mean;
-        }
-        first++;
-        second++;
+        lld answer = k + (k - 1) / (ceil(n, 2) - 1);
+        answer = answer % n;
+        answer = answer == 0 ? n : answer;
+        p(answer);
     }
-    p(x);
 }
 signed main()
 {
