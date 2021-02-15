@@ -4,13 +4,14 @@ from bisect import bisect_left,bisect_right
 # import numpy as np
 from queue import Queue,PriorityQueue
 from heapq import heapify,heappop,heappush
-from statistics import median
-from math import gcd,sqrt,floor,factorial,ceil,log2,log10
+from statistics import median,mean
+from math import gcd,sqrt,floor,factorial,ceil,log2,log10,log
 import fractions
 import copy
 from copy import deepcopy
 import sys
-sys.setrecursionlimit(10**7)
+import io
+sys.setrecursionlimit(10**8)
 import math
 import os
 import bisect
@@ -18,6 +19,7 @@ import collections
 mod=pow(10,9)+7
 import random
 from random import random,randint,randrange
+from time import  time;
 def ncr(n, r, p=mod):
     num = den = 1
     for i in range(r):
@@ -99,84 +101,6 @@ def reverse_bisect_left(a, x, lo=0, hi=None):
             lo = mid+1
     return lo
 
-
-class MaxHeap:
-
-    def _init_(self, maxsize):
-
-        self.maxsize = maxsize
-        self.size = 0
-        self.Heap = [0] * (self.maxsize + 1)
-        self.Heap[0] = sys.maxsize
-        self.FRONT = 1
-
-    def parent(self, pos):
-
-        return pos // 2
-
-    def leftChild(self, pos):
-
-        return 2 * pos
-
-    def rightChild(self, pos):
-
-        return (2 * pos) + 1
-
-    def isLeaf(self, pos):
-
-        if pos >= (self.size // 2) and pos <= self.size:
-            return True
-        return False
-
-    def swap(self, fpos, spos):
-
-        self.Heap[fpos], self.Heap[spos] = (self.Heap[spos],
-                                            self.Heap[fpos])
-
-    def maxHeapify(self, pos):
-
-        if not self.isLeaf(pos):
-            if (self.Heap[pos] < self.Heap[self.leftChild(pos)] or
-                    self.Heap[pos] < self.Heap[self.rightChild(pos)]):
-
-                if (self.Heap[self.leftChild(pos)] >
-                        self.Heap[self.rightChild(pos)]):
-                    self.swap(pos, self.leftChild(pos))
-                    self.maxHeapify(self.leftChild(pos))
-
-                else:
-                    self.swap(pos, self.rightChild(pos))
-                    self.maxHeapify(self.rightChild(pos))
-
-
-    def insert(self, element):
-
-        if self.size >= self.maxsize:
-            return
-        self.size += 1
-        self.Heap[self.size] = element
-
-        current = self.size
-
-        while (self.Heap[current] >
-               self.Heap[self.parent(current)]):
-            self.swap(current, self.parent(current))
-            current = self.parent(current)
-    def Print(self):
-
-        for i in range(1, (self.size // 2) + 1):
-            print(" PARENT : " + str(self.Heap[i]) +
-                  " LEFT CHILD : " + str(self.Heap[2 * i]) +
-                  " RIGHT CHILD : " + str(self.Heap[2 * i + 1]))
-    def extractMax(self):
-
-        popped = self.Heap[self.FRONT]
-        self.Heap[self.FRONT] = self.Heap[self.size]
-        self.size -= 1
-        self.maxHeapify(self.FRONT)
-
-        return popped
-
 def get_list():
     return list(map(int,input().split()))
 def get_str_list_in_int():
@@ -208,17 +132,52 @@ def prime_factors(n):
         if n%i==0:
             return [i]+prime_factors(n//i)
     return [n]
+def p(a):
+    if type(a)==str:
+        print(a+"\n")
+    else:
+        print(str(a)+"\n")
+def ps(a):
+    if type(a)==str:
+        print(a)
+    else:
+        print(str(a))
+def kth_no_not_div_by_n(n,k):
+    return k+(k-1)//(n-1)
 nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
 
-# t=input_int()
-# input=stdin.readline
-# print=stdout.write
-t=1;
+# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
+input=stdin.readline
+print=stdout.write
+
+t=int(input())
 for i in range(t):
-    
+    n,k=get_map();
+    if n%2==0:
+
+        answer=k%n;
+        answer=n if answer==0 else answer
+        p(answer)
+    else:
+        answer=kth_no_not_div_by_n(ceil(n/2),k)
+        answer=answer%n;
+        answer = n if answer == 0 else answer
+        p(answer)
+    # this question is like kth number not divisible by n
+
+    # https: // www.geeksforgeeks.org / find - the - kth - number - which - is -
+    # not -divisible - by - n /
+    # here n is n//2 as it repeats after n//2
+
+
+
+
+
+
+
 
 
 
