@@ -8,9 +8,9 @@ using namespace chrono;
     cout.tie(NULL);
 #define int long long
 #define lld long long
-#define p(x) cout << x << "\n";
-#define p2(x, y) cout << x << " " << y << "\n";
-#define p3(x, y, z) cout << x << " " << y << " " << z << "\n";
+#define p(x) cout << x << endl;
+#define p2(x, y) cout << x << " " << y << endl;
+#define p3(x, y, z) cout << x << " " << y << " " << z << endl;
 #define p4(x, y, z, a) cout << x << " " << y << " " << z << " " << a << endl;
 #define p5(x, y, z, a, b) cout << x << " " << y << " " << z << " " << a << " " << b << endl;
 #define ps(x) cout << x << " ";
@@ -254,21 +254,9 @@ string yc = "YES";
 string ys = "Yes";
 void fun()
 {
-    lld n, k;
-    cin >> n >> k;
-    if (n % 2 == 0)
-    {
-        k = k % n;
-        k = k == 0 ? n : k;
-        p(k);
-    }
-    else
-    {
-        lld answer = k + (k - 1) / (ceil(n, 2) - 1);
-        answer = answer % n;
-        answer = answer == 0 ? n : answer;
-        p(answer);
-    }
+    lld n;
+    cin >> n;
+    p(n);
 }
 signed main()
 {
@@ -277,6 +265,7 @@ signed main()
 
     lld t;
     cin >> t;
+    p(t);
     // t=1;
     while (t--)
     {
