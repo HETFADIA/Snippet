@@ -144,41 +144,56 @@ def ps(a):
         print(str(a))
 def kth_no_not_div_by_n(n,k):
     return k+(k-1)//(n-1)
+def forward_array(l):
+    stack = []
+    forward=[0]*n
+    for i in range(len(l) - 1, -1, -1):
+        while len(stack) and l[stack[-1]] < l[i]:
+            stack.pop()
+        if len(stack) == 0:
+            forward[i] = len(l);
+        else:
+            forward[i] = stack[-1]
+        stack.append(i)
+    return forward;
+def backward_array(l):
+    stack = []
+    backward=[0]*n
+    for i in range(len(l)):
+        while len(stack) and l[stack[-1]] < l[i]:
+            stack.pop()
+        if len(stack) == 0:
+            backward[i] = -1;
+        else:
+            backward[i] = stack[-1]
+        stack.append(i)
+    return backward
 nc="NO"
 yc="YES"
 ns="No"
 ys="Yes"
 
 # input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
-input=stdin.readline
-print=stdout.write
+# input=stdin.readline
+# print=stdout.write
+
 
 t=int(input())
 for i in range(t):
-    n,k=get_map();
-    if n%2==0:
-
-        answer=k%n;
-        answer=n if answer==0 else answer
-        p(answer)
-    else:
-        answer=kth_no_not_div_by_n(ceil(n/2),k)
-        answer=answer%n;
-        answer = n if answer == 0 else answer
-        p(answer)
-    # this question is like kth number not divisible by n
-
-    # https: // www.geeksforgeeks.org / find - the - kth - number - which - is -
-    # not -divisible - by - n /
-    # here n is n//2 as it repeats after n//2
-
-
-
-
-
-
-
-
+    n=int(input())
+    l=get_list();
+    dict=defaultdict(int)
+    forward=forward_array(l)
+    backward=backward_array(l)
+    for i in range(n):
+        j=forward[i]
+        if j!=n:
+            dict[l[j]-l[i]]=1
+    for i in range(n):
+        j=backward[i]
+        if j!=-1:
+            dict[l[j]-l[i]]=1
+    print(len(dict))
 
 
 
