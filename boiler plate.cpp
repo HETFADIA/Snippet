@@ -157,6 +157,87 @@ void print(vector<lld> &v)
     }
     cout << endl;
 }
+void prints(vector<int> v)
+{
+    //prints the vector from 1st index
+    for (int i = 1; i != v.size(); i++)
+    {
+        ps(v[i]);
+    }
+}
+void print(set<pair<int, int>> seta)
+{
+    //prints the set it is used for debuggging
+    set<pair<int, int>>::iterator i;
+    for (i = seta.begin(); i != seta.end(); i++)
+    {
+        ps2(i->first, i->second);
+    }
+    p("");
+}
+void print(map<int, int> mapa)
+{
+    //prints the map it is used for debuggging
+    map<int, int>::iterator i;
+    for (i = mapa.begin(); i != mapa.end(); i++)
+    {
+        ps4("{", i->first, i->second, "}");
+    }
+    p("");
+}
+void print(set<int> seta)
+{
+    //prints the set it is used for debuggging
+    set<int>::iterator i;
+    for (i = seta.begin(); i != seta.end(); i++)
+    {
+        ps(*i);
+    }
+    p("");
+}
+void print(map<pair<int, int>, pair<int, int>> mapa)
+{
+    //prints the map it is used for debuggging
+    map<pair<int, int>, pair<int, int>>::iterator i;
+    for (i = mapa.begin(); i != mapa.end(); i++)
+    {
+        ps4(i->first.first, i->first.second, i->second.first, i->second.second);
+    }
+}
+void print(map<pair<int, int>, int> mapa)
+{
+    //prints the map it is used for debuggging
+    map<pair<int, int>, int>::iterator i;
+    for (i = mapa.begin(); i != mapa.end(); i++)
+    {
+        ps5("{", i->first.first, i->first.second, i->second, "}");
+    }
+    p("");
+}
+void print(pair<int, int> tuple)
+{
+    //prints the tuple it is used for debuggging
+    p2(tuple.first, tuple.second);
+}
+int min_index(vector<int> cost)
+{
+    //returns the index of the min element of cost ie if min(cost)=4 then it returns index(4) in cost vector
+    int index = 0;
+    int min_cost = 0;
+    if (cost.size())
+    {
+        min_cost = cost[0];
+    }
+    for (int i = 0; i < cost.size(); i++)
+    {
+        if (min_cost > cost[i])
+        {
+            min_cost = cost[i];
+            index = i;
+        }
+    }
+    return index;
+}
 // const lld a3=1000000;
 // bool prime[a3 + 1];
 // void SieveOfEratosthenes(int n)
@@ -265,7 +346,7 @@ signed main()
 
     lld t;
     cin >> t;
-    p(t);
+
     // t=1;
     while (t--)
     {
