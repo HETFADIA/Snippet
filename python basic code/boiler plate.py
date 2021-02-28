@@ -145,6 +145,7 @@ def ps(a):
 def kth_no_not_div_by_n(n,k):
     return k+(k-1)//(n-1)
 def forward_array(l):
+    n=len(l)
     stack = []
     forward=[0]*n
     for i in range(len(l) - 1, -1, -1):
@@ -157,6 +158,7 @@ def forward_array(l):
         stack.append(i)
     return forward;
 def backward_array(l):
+    n=len(l)
     stack = []
     backward=[0]*n
     for i in range(len(l)):
@@ -180,20 +182,7 @@ ys="Yes"
 
 t=int(input())
 for i in range(t):
-    n=int(input())
-    l=get_list();
-    dict=defaultdict(int)
-    forward=forward_array(l)
-    backward=backward_array(l)
-    for i in range(n):
-        j=forward[i]
-        if j!=n:
-            dict[l[j]-l[i]]=1
-    for i in range(n):
-        j=backward[i]
-        if j!=-1:
-            dict[l[j]-l[i]]=1
-    print(len(dict))
+    
 
 
 
