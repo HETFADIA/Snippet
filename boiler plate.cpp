@@ -35,6 +35,7 @@ using namespace chrono;
 #define fr(i, a, b) for (lld i = (b); i > a; i--)
 #define inf 999999999999999
 #define pll pair<lld, lld>
+#define ppll pair<pll, lld>
 void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
 {
     adj[u].insert(v);
@@ -157,6 +158,22 @@ void print(vector<lld> &v)
     }
     cout << endl;
 }
+void print(vector<string> &v)
+{
+    for (lld i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+void print(vector<pll> &v)
+{
+    for (lld i = 0; i < v.size(); i++)
+    {
+        cout << v[i].first << " " << v[i].second << " ";
+    }
+    cout << endl;
+}
 void prints(vector<int> v)
 {
     //prints the vector from 1st index
@@ -218,6 +235,13 @@ void print(pair<int, int> tuple)
 {
     //prints the tuple it is used for debuggging
     p2(tuple.first, tuple.second);
+}
+void print(set<lld, greater<lld>> s)
+{
+    for (auto i = s.begin(); i != s.end(); i++)
+    {
+        p(*i);
+    }
 }
 int min_index(vector<int> cost)
 {
@@ -329,15 +353,14 @@ lld ceil(lld a, lld n)
     }
     return a / n + 1;
 }
+
 string nc = "NO";
 string ns = "No";
 string yc = "YES";
 string ys = "Yes";
+
 void fun()
 {
-    lld n;
-    cin >> n;
-    p(n);
 }
 signed main()
 {
@@ -347,7 +370,7 @@ signed main()
     lld t;
     cin >> t;
 
-    // t=1;
+    // t = 1;
     while (t--)
     {
         fun();
