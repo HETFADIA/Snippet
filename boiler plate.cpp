@@ -176,7 +176,7 @@ void print(vector<pll> &v)
     }
     cout << endl;
 }
-void prints(vector<int> v)
+void prints(vector<int> &v)
 {
     //prints the vector from 1st index
     for (int i = 1; i != v.size(); i++)
@@ -184,7 +184,7 @@ void prints(vector<int> v)
         ps(v[i]);
     }
 }
-void print(set<pair<int, int>> seta)
+void print(set<pair<int, int>> &seta)
 {
     //prints the set it is used for debuggging
     set<pair<int, int>>::iterator i;
@@ -194,7 +194,7 @@ void print(set<pair<int, int>> seta)
     }
     p("");
 }
-void print(map<int, int> mapa)
+void print(map<int, int> &mapa)
 {
     //prints the map it is used for debuggging
     map<int, int>::iterator i;
@@ -204,7 +204,7 @@ void print(map<int, int> mapa)
     }
     p("");
 }
-void print(set<int> seta)
+void print(set<int> &seta)
 {
     //prints the set it is used for debuggging
     set<int>::iterator i;
@@ -214,7 +214,7 @@ void print(set<int> seta)
     }
     p("");
 }
-void print(map<pair<int, int>, pair<int, int>> mapa)
+void print(map<pair<int, int>, pair<int, int>> &mapa)
 {
     //prints the map it is used for debuggging
     map<pair<int, int>, pair<int, int>>::iterator i;
@@ -223,7 +223,7 @@ void print(map<pair<int, int>, pair<int, int>> mapa)
         ps4(i->first.first, i->first.second, i->second.first, i->second.second);
     }
 }
-void print(map<pair<int, int>, int> mapa)
+void print(map<pair<int, int>, int> &mapa)
 {
     //prints the map it is used for debuggging
     map<pair<int, int>, int>::iterator i;
@@ -233,19 +233,19 @@ void print(map<pair<int, int>, int> mapa)
     }
     p("");
 }
-void print(pair<int, int> tuple)
+void print(pair<int, int> &tuple)
 {
     //prints the tuple it is used for debuggging
     p2(tuple.first, tuple.second);
 }
-void print(set<lld, greater<lld>> s)
+void print(set<lld, greater<lld>> &s)
 {
     for (auto i = s.begin(); i != s.end(); i++)
     {
         p(*i);
     }
 }
-int min_index(vector<int> cost)
+int min_index(vector<int> &cost)
 {
     //returns the index of the min element of cost ie if min(cost)=4 then it returns index(4) in cost vector
     int index = 0;
@@ -297,7 +297,7 @@ unordered_map<lld, lld> Counter(vector<lld> &v)
     }
     return um;
 }
-unordered_map<char, lld> Counter(string a)
+unordered_map<char, lld> Counter(string &a)
 {
     unordered_map<char, lld> um;
     for (char i : a)
