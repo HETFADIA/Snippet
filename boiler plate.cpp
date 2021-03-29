@@ -36,6 +36,8 @@ using namespace chrono;
 #define inf 999999999999999
 #define pll pair<lld, lld>
 #define ppll pair<pll, lld>
+#define ff first
+#define ss second
 void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)
 {
     adj[u].insert(v);
