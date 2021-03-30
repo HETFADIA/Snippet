@@ -313,6 +313,24 @@ void get_list(vector<lld> &v)
         cin >> v[i];
     }
 }
+vector<lld> sliced(vector<lld> &v, lld start, lld end)
+{
+    vector<lld> another;
+    f(i, start, end)
+    {
+        another.pb(v[i]);
+    }
+    return another;
+}
+vector<lld> sliced(vector<lld> &v, lld start)
+{
+    vector<lld> another;
+    f(i, start, v.size())
+    {
+        another.pb(v[i]);
+    }
+    return another;
+}
 void ignore(lld a)
 {
 #ifndef ONLINE_JUDGE
@@ -363,6 +381,9 @@ string ys = "Yes";
 
 void fun()
 {
+    vector<lld> v(10);
+    v = sliced(v, 1);
+    print(v);
 }
 signed main()
 {
@@ -370,9 +391,9 @@ signed main()
     auto start1 = high_resolution_clock::now();
 
     lld t;
-    cin >> t;
+    // cin >> t;
 
-    // t = 1;
+    t = 1;
     while (t--)
     {
         fun();
