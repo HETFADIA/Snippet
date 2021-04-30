@@ -12,8 +12,8 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"Boilerplate for cpp": {
-		"prefix": "cpp boilerplate",
+	"cpp boilerplate": {
+		"prefix": "boilerplate",
 		"body": [
 			"#pragma GCC optimize(\"O2\")",
 			"#include <bits/stdc++.h>",
@@ -404,14 +404,23 @@
 			"string yc = \"YES\";",
 			"string ys = \"Yes\";",
 			"map<lld, lld> m;",
-			"",
+			"void yesno(lld a)",
+			"{",
+			"    if (a)",
+			"    {",
+			"        p(yc);",
+			"    }",
+			"    else",
+			"    {",
+			"        p(nc);",
+			"    }",
+			"}",
 			"void fun()",
 			"{",
-			"    lld n;",
-			"    cin >> n;",
-			"    vector<lld> v(n);",
-			"    inp(v);",
-			"    print(v);",
+			"    lld n, m, k;",
+			"    cin >> n >> m >> k;",
+			"    lld answer = k == n * m - 1;",
+			"    yesno(k == n * m - 1);",
 			"}",
 			"signed main()",
 			"{",
@@ -419,9 +428,9 @@
 			"    auto start1 = high_resolution_clock::now();",
 			"",
 			"    lld t;",
+			"    t = 1;",
 			"    cin >> t;",
 			"",
-			"    // t = 1;",
 			"    while (t--)",
 			"    {",
 			"        fun();",
@@ -435,7 +444,7 @@
 			"#endif",
 			"}"
 		],
-		"description": "Boilerplate for cpp"
+		"description": "cpp boilerplate"
 	},
 	"Bellman ford": {
 		"prefix": "bellman",
