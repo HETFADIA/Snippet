@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"python boilerplate": {
+	"boilerplate python": {
 		"prefix": "boilerplate",
 		"body": [
 			"# cook your dish here",
@@ -23,7 +23,7 @@
 			"from queue import Queue, PriorityQueue",
 			"from heapq import *",
 			"from statistics import *",
-			"from math import sqrt, log10, log2, log, gcd",
+			"from math import sqrt, log10, log2, log, gcd,ceil, floor",
 			"import fractions",
 			"import copy",
 			"from copy import deepcopy",
@@ -40,7 +40,8 @@
 			"import random",
 			"from random import *",
 			"from time import time;",
-			"",
+			"import itertools",
+			"from itertools import  combinations",
 			"",
 			"def ncr(n, r, p=mod):",
 			"    num = den = 1",
@@ -211,6 +212,14 @@
 			"",
 			"",
 			"def forward_array(l):",
+			"    \"\"\"",
+			"    returns the forward index where the elemetn is just greater than that element",
+			"    [100,200] gives [1,2]",
+			"    because element at index 1 is greater than 100 and nearest",
+			"    similarly if it is largest then it outputs n",
+			"    :param l:",
+			"    :return:",
+			"    \"\"\"",
 			"    n = len(l)",
 			"    stack = []",
 			"    forward = [0] * n",
@@ -251,6 +260,11 @@
 			"def issq(n):",
 			"    sqrta = int(n ** 0.5)",
 			"    return sqrta ** 2 == n;",
+			"",
+			"",
+			"def ceil(a,b):",
+			"    return int((a+b-1)/b)",
+			"",
 			"def equal_sum_partition(arr,n):",
 			"    sum = 0",
 			"    for i in range(n):",
@@ -341,14 +355,13 @@
 			"# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
 			"# input=stdin.readline",
 			"# print=stdout.write",
-			"t=1",
-			"t=int(input())",
-			"for i in range(t):",
-			"    n=int(input())",
+			"# t=1",
+			"",
+			"",
 			"",
 			""
 		],
-		"description": "python boilerplate"
+		"description": "boilerplate python"
 	},
 	"Equal sum partition python": {
 		"prefix": "equal sum partition",
