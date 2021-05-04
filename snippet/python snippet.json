@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"boilerplate python": {
+	"python boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"# cook your dish here",
@@ -141,6 +141,8 @@
 			"def get_list():",
 			"    return list(map(int, input().split()))",
 			"",
+			"def make_list(m):",
+			"    m+=list(map(int, input().split()))",
 			"",
 			"def get_str_list_in_int():",
 			"    return [int(i) for i in list(input())]",
@@ -310,6 +312,10 @@
 			"ys = \"Yes\"",
 			"def yesno(a):",
 			"    print(yc if a else nc)",
+			"def reduce(dict,a):",
+			"    dict[a]-=1;",
+			"    if dict[a]==0:",
+			"        dict.pop(a)",
 			"# import math as mt",
 			"# MAXN=10**7",
 			"# spf = [0 for i in range(MAXN)]",
@@ -355,13 +361,23 @@
 			"# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
 			"# input=stdin.readline",
 			"# print=stdout.write",
-			"# t=1",
+			"",
+			"",
+			"def fun():",
+			"    n=int(input())",
+			"t=1",
+			"t=int(input())",
+			"for i in range(t):",
+			"    fun()",
+			"",
+			"",
+			"",
 			"",
 			"",
 			"",
 			""
 		],
-		"description": "boilerplate python"
+		"description": "python boilerplate"
 	},
 	"Equal sum partition python": {
 		"prefix": "equal sum partition",
