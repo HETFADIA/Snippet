@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"python boilerplate": {
+	"cpp boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"#pragma GCC optimize(\"O2\")",
@@ -468,8 +468,21 @@
 			"{",
 			"    return m.find(value) != m.end();",
 			"}",
+			"lld issq(lld n)",
+			"{",
+			"    lld sqrta = sqrt(n);",
+			"    return sqrta * sqrta == n;",
+			"}",
+			"lld issq(double n)",
+			"{",
+			"    lld sqrta = sqrt(n);",
+			"    return sqrta * sqrta == n;",
+			"}",
 			"void fun()",
 			"{",
+			"    lld n;",
+			"    cin >> n;",
+			"    yesno(issq(n / 2.0) or issq(n / 4.0));",
 			"}",
 			"signed main()",
 			"{",
@@ -493,7 +506,7 @@
 			"#endif",
 			"}"
 		],
-		"description": "python boilerplate"
+		"description": "cpp boilerplate"
 	},
 	"Bellman ford": {
 		"prefix": "bellman",
