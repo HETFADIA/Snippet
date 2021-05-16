@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"cpp boilerplate": {
+	"python boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"from collections import defaultdict, OrderedDict, Counter",
@@ -383,7 +383,7 @@
 			"",
 			""
 		],
-		"description": "cpp boilerplate"
+		"description": "python boilerplate"
 	},
 	"Equal sum partition python": {
 		"prefix": "equal sum partition",
