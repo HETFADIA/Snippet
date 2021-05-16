@@ -12,10 +12,9 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"python boilerplate": {
+	"cpp boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
-			"# cook your dish here",
 			"from collections import defaultdict, OrderedDict, Counter",
 			"from sys import stdin, stdout",
 			"from bisect import bisect_left, bisect_right",
@@ -313,7 +312,8 @@
 			"            if i[j]=='1':",
 			"                new_array[j]+=1",
 			"    return new_array",
-			"",
+			"def ispalindrome(s):",
+			"    return s==s[::-1]",
 			"nc = \"NO\"",
 			"yc = \"YES\"",
 			"ns = \"No\"",
@@ -370,13 +370,20 @@
 			"# input=stdin.readline",
 			"# print=stdout.write",
 			"",
+			"",
 			"t=1",
-			"t=int(input())",
 			"for i in range(t):",
 			"    n=int(input())",
-			"    l=get_list()"
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
 		],
-		"description": "python boilerplate"
+		"description": "cpp boilerplate"
 	},
 	"Equal sum partition python": {
 		"prefix": "equal sum partition",
