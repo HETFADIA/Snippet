@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"python boilerplate": {
+	"boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"from itertools import combinations, permutations, combinations_with_replacement, product",
@@ -412,13 +412,31 @@
 			"# if(os.path.exists('input.txt')):",
 			"#     sys.stdin = open(\"input.txt\",\"r\") ; sys.stdout = open(\"output.txt\",\"w\")",
 			"",
+			"import sys",
+			"import io",
+			"from sys import stdin, stdout",
 			"# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
-			"# input=sys.stdin.readline",
+			"input=sys.stdin.readline",
 			"# print=sys.stdout.write",
 			"t = 1",
-			""
+			"t=int(input())",
+			"for i in range(t):",
+			"    string = \"Case #%d:\" % (i + 1);",
+			"    print(string, end=\" \")",
+			"    n,k=get_list()",
+			"    s=input().strip()",
+			"    iter1=0",
+			"    iter2=n-1",
+			"    counta=0",
+			"    while iter1<iter2:",
+			"        if s[iter1]!=s[iter2]:",
+			"            counta+=1",
+			"        iter1+=1",
+			"        iter2-=1",
+			"",
+			"    print(abs(k-counta))"
 		],
-		"description": "python boilerplate"
+		"description": "boilerplate"
 	},
 	"python fastio": {
 		"prefix": "fastio",
