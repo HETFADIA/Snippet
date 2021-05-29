@@ -440,6 +440,9 @@
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
+			"from collections import defaultdict,Counter",
+			"from math import sqrt, log10, log2, log, gcd, ceil, floor",
+			"from bisect import bisect_left, bisect_right",
 			"import sys,io,os;",
 			"# input=sys.stdin.readline",
 			"input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
