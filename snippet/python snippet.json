@@ -557,30 +557,45 @@
 		],
 		"description": "cpp plag remove"
 	},
-	"python plag remove": {
-		"prefix": "plag remove",
+	"plag remove ": {
+		"prefix": "python plag",
 		"body": [
 			"file = open('cf.py', 'r')",
 			"out = open('cf2.py', 'w')",
 			"string = \"ali=0\"",
 			"for i in file:",
 			"    i = i[:-1]",
+			"    counter = 0",
+			"    for j in i:",
 			"",
-			"    out.write(i)",
+			"        if j == ' ':",
+			"            counter += 1",
+			"        else:",
+			"            break",
+			"    i = i[counter:]",
 			"    try:",
 			"        if len(i) == 0:",
-			"            pass",
+			"            out.write(\" \"*counter)",
+			"            out.write(i)",
 			"        elif i.endswith(','):",
-			"            pass",
+			"            out.write(\" \"*counter)",
+			"            out.write(i)",
 			"        elif i.endswith(':'):",
-			"            pass",
+			"            if i.startswith('if'):",
+			"                out.write(\" \"*counter+string+\";\\n\")",
+			"            out.write(\" \"*counter)",
+			"            out.write(i)",
 			"        else:",
+			"            out.write(\" \"*counter+string+\";\")",
+			"            out.write(i)",
 			"            out.write(';'+string)",
+			"            out.write(\"\\n\"+\" \"*counter+string+\";\")",
 			"    except:",
-			"        pass",
+			"        out.write(\" \"*counter)",
+			"        out.write(i)",
 			"    out.write('\\n')",
 			""
 		],
-		"description": "python plag remove"
+		"description": "plag remove "
 	}
 }
