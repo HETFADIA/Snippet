@@ -79,7 +79,7 @@
 			"#define pf(x) push_front(x);",
 			"#define mkp(x, y) make_pair(x, y)",
 			"#define f(i, a, b) for (lld i = (a); i < (b); i++)",
-			"#define fn(i, n) for (lld i = (0); i < (b); i++)",
+			"#define fn(i, n) for (lld i = (0); i < (n); i++)",
 			"#define fr(i, a, b) for (lld i = (b); i > a; i--)",
 			"#define inf LLONG_MAX",
 			"#define pll pair<lld, lld>",
