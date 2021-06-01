@@ -93,6 +93,8 @@
 			"    }",
 			"#define MOD 1000000007",
 			"#define mod 1000000007",
+			"template <typename T>",
+			"using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
 			"typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> indexed_set;",
 			"//member functions :",
 			"//1. order_of_key(k) : number of elements strictly lesser than k",
@@ -600,6 +602,18 @@
 			"    }",
 			"}",
 			"",
+			"lld inversion(vl &v)",
+			"{",
+			"    oset<lld> os;",
+			"    lld inversioncount = 0;",
+			"    for (auto it = v.rbegin(); it != v.rend(); it++)",
+			"    {",
+			"        lld element = *it;",
+			"        os.insert(element);",
+			"        inversioncount += os.order_of_key(element);",
+			"    }",
+			"    return inversioncount;",
+			"}",
 			"void fun()",
 			"{",
 			"}",
@@ -1841,5 +1855,23 @@
 			"}"
 		],
 		"description": "google"
+	},
+	"inversion": {
+		"prefix": "inversioncount",
+		"body": [
+			"lld inversion(vl &v)",
+			"{",
+			"    oset<lld> os;",
+			"    lld inversioncount = 0;",
+			"    for (auto it = v.rbegin(); it != v.rend(); it++)",
+			"    {",
+			"        lld element = *it;",
+			"        os.insert(element);",
+			"        inversioncount += os.order_of_key(element);",
+			"    }",
+			"    return inversioncount;",
+			"}"
+		],
+		"description": "inversion"
 	}
 }
