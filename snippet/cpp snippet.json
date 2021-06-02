@@ -12,8 +12,8 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"cpp boilerplate": {
-		"prefix": "boilerplate",
+	"boilerplate": {
+		"prefix": "cpp boilerplate",
 		"body": [
 			"#pragma GCC optimize(\"O2\")",
 			"#include <bits/stdc++.h>",
@@ -99,6 +99,22 @@
 			"//member functions :",
 			"//1. order_of_key(k) : number of elements strictly lesser than k",
 			"//2. find_by_order(k) : k-th element in the set",
+			"",
+			"template <typename T>",
+			"struct reversion_wrapper",
+			"{",
+			"    T &iterable;",
+			"};",
+			"",
+			"template <typename T>",
+			"auto begin(reversion_wrapper<T> w) { return std::rbegin(w.iterable); }",
+			"",
+			"template <typename T>",
+			"auto end(reversion_wrapper<T> w) { return std::rend(w.iterable); }",
+			"",
+			"template <typename T>",
+			"reversion_wrapper<T> reverse(T &&iterable) { return {iterable}; }",
+			"",
 			"void addedge(unordered_map<lld, set<lld>> &adj, lld u, lld v)",
 			"{",
 			"    adj[u].insert(v);",
@@ -639,7 +655,7 @@
 			"#endif",
 			"}"
 		],
-		"description": "cpp boilerplate"
+		"description": "boilerplate"
 	},
 	"Bellman ford": {
 		"prefix": "bellman",
@@ -1873,5 +1889,22 @@
 			"}"
 		],
 		"description": "inversion"
+	},
+	"reverse iterator": {
+		"prefix": "reverse iterator",
+		"body": [
+			"template <typename T>",
+			"struct reversion_wrapper { T& iterable; };",
+			"",
+			"template <typename T>",
+			"auto begin (reversion_wrapper<T> w) { return std::rbegin(w.iterable); }",
+			"",
+			"template <typename T>",
+			"auto end (reversion_wrapper<T> w) { return std::rend(w.iterable); }",
+			"",
+			"template <typename T>",
+			"reversion_wrapper<T> reverse (T&& iterable) { return { iterable }; }"
+		],
+		"description": "reverse iterator"
 	}
 }
