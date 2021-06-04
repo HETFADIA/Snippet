@@ -437,35 +437,32 @@
 		],
 		"description": "python boilerplate"
 	},
-	"small boilerplate": {
+	"python small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
 			"from collections import defaultdict,Counter",
 			"from math import sqrt, log10, log2, log, gcd, ceil, floor",
 			"from bisect import bisect_left, bisect_right",
+			"from itertools import permutations",
 			"import sys,io,os;",
-			"# input=sys.stdin.readline",
-			"input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
+			"input=sys.stdin.readline",
+			"# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
 			"# print=sys.stdout.write",
-			"t = 1",
+			"sys.setrecursionlimit(10000)",
+			"mod=int(pow(10,7)+9)",
+			"inf = float('inf')",
 			"def get_list():",
 			"    return [int(i) for i in input().split()]",
-			"t=int(input())",
-			"for i in range(t):",
+			"def yn(a):",
+			"    print(\"YES\" if a else \"NO\")",
+			"t = 1",
+			"",
+			"for i in range(int(input())):",
 			"    n=int(input())",
-			"    l=get_list()",
-			"    l.sort()",
-			"    arr=[0]*2*n;",
-			"    counter=0;",
-			"    for i in range(0,2*n,2):",
-			"        arr[i]=l[counter]",
-			"        counter+=1",
-			"    for i in range(1,2*n,2):",
-			"        arr[i] = l[counter]",
-			"        counter += 1",
-			"    print(*arr)"
+			"",
+			""
 		],
-		"description": "small boilerplate"
+		"description": "python small boilerplate"
 	},
 	"python fastio": {
 		"prefix": "fastio",
