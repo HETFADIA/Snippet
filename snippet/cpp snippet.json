@@ -689,6 +689,32 @@
 		],
 		"description": "boilerplate"
 	},
+	"count prime sieve": {
+		"prefix": "count prime sieve",
+		"body": [
+			"const lld a3 = 2 * 1e7 + 1000;",
+			"bool prime[a3 + 1];",
+			"lld primecount[a3 + 1];",
+			"void SieveOfEratosthenes(lld n)",
+			"{",
+			"    memset(prime, true, sizeof(prime));",
+			"    memset(primecount, 0, sizeof(primecount));",
+			"    for (lld p = 2; p <= n; p++)",
+			"    {",
+			"        if (prime[p] == true)",
+			"        {",
+			"            primecount[p]++;",
+			"            for (lld i = 2 * p; i <= n; i += p)",
+			"            {",
+			"                prime[i] = false;",
+			"                primecount[i]++;",
+			"            }",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "count prime sieve"
+	},
 	"Bellman ford": {
 		"prefix": "bellman",
 		"body": [
