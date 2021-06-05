@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"cpp boilerplate": {
+	"boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"#pragma GCC optimize(\"O2\")",
@@ -481,25 +481,6 @@
 			"    return prime;",
 			"}",
 			"",
-			"vector<lld> sliced(vl &v, lld start, lld end)",
-			"{",
-			"    vl another;",
-			"    f(i, start, end)",
-			"    {",
-			"        another.pb(v[i]);",
-			"    }",
-			"    return another;",
-			"}",
-			"vector<lld> sliced(vector<lld> &v, lld start)",
-			"{",
-			"    vector<lld> another;",
-			"    f(i, start, v.size())",
-			"    {",
-			"        another.pb(v[i]);",
-			"    }",
-			"    return another;",
-			"}",
-			"",
 			"lld kth_no_not_divisible_by_n(lld n, lld k)",
 			"{",
 			"    return k + (k - 1) / (n - 1);",
@@ -547,10 +528,7 @@
 			"        m[value]--;",
 			"    }",
 			"}",
-			"lld present(map<lld, lld> &m, lld value)",
-			"{",
-			"    return m.find(value) != m.end();",
-			"}",
+			"",
 			"lld issq(lld n)",
 			"{",
 			"    lld sqrta = sqrt(n);",
@@ -724,7 +702,7 @@
 			"#endif",
 			"}"
 		],
-		"description": "cpp boilerplate"
+		"description": "boilerplate"
 	},
 	"Bellman ford": {
 		"prefix": "bellman",
