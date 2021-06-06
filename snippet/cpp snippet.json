@@ -81,7 +81,9 @@
 			"#define f(i, a, b) for (lld i = (a); i < (b); i++)",
 			"#define fn(i, n) for (lld i = (0); i < (n); i++)",
 			"#define fr(i, a, b) for (lld i = (b); i > a; i--)",
-			"#define inf LLONG_MAX",
+			"#define inf 1e18",
+			"#define pinf LLONG_MAX",
+			"#define ninf LLONG_MIN",
 			"#define pll pair<lld, lld>",
 			"#define ppll pair<pll, lld>",
 			"#define ff first",
@@ -499,6 +501,25 @@
 			"}"
 		],
 		"description": "boilerplate"
+	},
+	"sort by key=len": {
+		"prefix": "size sorting",
+		"body": [
+			"// sorting according to the length int n;",
+			"// cin >> n;",
+			"// vector<string> a(n);",
+			"// f(i, n)",
+			"// {",
+			"//     cin >> a[i];",
+			"// }",
+			"// sort(all(a), [&a](string x, string y)",
+			"//      { return x.size() < y.size(); });",
+			"// f(i, n)",
+			"// {",
+			"//     cout << a[i] << endl;",
+			"// }"
+		],
+		"description": "sort by key=len"
 	},
 	"bfs": {
 		"prefix": "bfs",
