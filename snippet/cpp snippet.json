@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"boilerplate": {
+	"cpp boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"#pragma GCC optimize(\"O2\")",
@@ -99,6 +99,8 @@
 			"using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
 			"template <typename T, typename T2>",
 			"using omap = tree<T, T2, less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+			"template <typename T>",
+			"using omulti_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;",
 			"//member functions :",
 			"//1. order_of_key(k) : number of elements strictly lesser than k",
 			"//2. find_by_order(k) : k-th element in the set",
@@ -500,7 +502,7 @@
 			"#endif",
 			"}"
 		],
-		"description": "boilerplate"
+		"description": "cpp boilerplate"
 	},
 	"sort by key=len": {
 		"prefix": "size sorting",
