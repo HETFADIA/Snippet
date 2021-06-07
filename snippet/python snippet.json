@@ -1099,5 +1099,67 @@
 			""
 		],
 		"description": "plag remove "
+	},
+	"spf": {
+		"prefix": "spf",
+		"body": [
+			"import math as mt",
+			"MAXN=10**7",
+			"spf = [0 for i in range(MAXN)]",
+			"def sieve():",
+			"    spf[1] = 1",
+			"    for i in range(2, MAXN):",
+			"        # marking smallest prime factor",
+			"        # for every number to be itself.",
+			"        spf[i] = i",
+			"",
+			"        # separately marking spf for",
+			"    # every even number as 2",
+			"    for i in range(4, MAXN, 2):",
+			"        spf[i] = 2",
+			"",
+			"    for i in range(3, mt.ceil(mt.sqrt(MAXN))):",
+			"",
+			"        # checking if i is prime",
+			"        if (spf[i] == i):",
+			"",
+			"            # marking SPF for all numbers",
+			"            # divisible by i",
+			"            for j in range(i * i, MAXN, i):",
+			"",
+			"                # marking spf[j] if it is",
+			"                # not previously marked",
+			"                if (spf[j] == j):",
+			"                    spf[j] = i",
+			"def getFactorization(x):",
+			"    ret = list()",
+			"    while (x != 1):",
+			"        ret.append(spf[x])",
+			"        x = x // spf[x]",
+			"",
+			"    return ret",
+			"sieve()"
+		],
+		"description": "spf"
+	},
+	"sieve": {
+		"prefix": "sieve",
+		"body": [
+			"a9=pow(10,5)+100",
+			"prime = [True for i in range(a9 + 1)]",
+			"def SieveOfEratosthenes(n):",
+			"    p = 2",
+			"    while (p * p <= n):",
+			"        if (prime[p] == True):",
+			"            for i in range(p * p, n + 1, p):",
+			"                prime[i] = False",
+			"        p += 1",
+			"SieveOfEratosthenes(a9)",
+			"prime_number=[]",
+			"for i in range(2,a9):",
+			"    if prime[i]:",
+			"        prime_number.append(i)"
+		],
+		"description": "sieve"
 	}
 }
