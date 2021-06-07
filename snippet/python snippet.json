@@ -12,7 +12,7 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"python boilerplate": {
+	"boilerplate": {
 		"prefix": "boilerplate",
 		"body": [
 			"from itertools import combinations, permutations, combinations_with_replacement, product",
@@ -22,8 +22,6 @@
 			"import timeit",
 			"import time",
 			"from time import time",
-			"from random import *",
-			"import random",
 			"import collections",
 			"import bisect",
 			"import os",
@@ -42,7 +40,7 @@
 			"import sys",
 			"import io",
 			"import string",
-			"from string import ascii_lowercase,ascii_uppercase,ascii_letters,digits",
+			"from string import ascii_lowercase, ascii_uppercase, ascii_letters, digits",
 			"sys.setrecursionlimit(10000)",
 			"",
 			"mod = int(pow(10, 9)) + 7",
@@ -375,7 +373,6 @@
 			"        dict.pop(a)",
 			"",
 			"",
-			"",
 			"# import math as mt",
 			"# MAXN=10**7",
 			"# spf = [0 for i in range(MAXN)]",
@@ -416,26 +413,18 @@
 			"",
 			"# if(os.path.exists('input.txt')):",
 			"#     sys.stdin = open(\"input.txt\",\"r\") ; sys.stdout = open(\"output.txt\",\"w\")",
-			"",
-			"import sys",
-			"import io",
-			"from sys import stdin, stdout",
 			"# input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
-			"input=sys.stdin.readline",
+			"input = sys.stdin.readline",
 			"# print=sys.stdout.write",
 			"t = 1",
 			"",
-			"t=int(input())",
+			"t = int(input())",
 			"for i in range(t):",
-			"    n,k=get_list()",
-			"    l=get_list()",
-			"",
-			"",
-			"",
-			"",
+			"    n, k = get_list()",
+			"    l = get_list()",
 			""
 		],
-		"description": "python boilerplate"
+		"description": "boilerplate"
 	},
 	"python small boilerplate": {
 		"prefix": "small boilerplate",
