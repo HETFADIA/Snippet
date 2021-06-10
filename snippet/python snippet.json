@@ -427,7 +427,7 @@
 		"description": "boilerplate"
 	},
 	"small boilerplate": {
-		"prefix": "boilerplate",
+		"prefix": "small boilerplate",
 		"body": [
 			"import string",
 			"from collections import defaultdict,Counter",
@@ -444,13 +444,13 @@
 			"def get_list():",
 			"    return [int(i) for i in input().split()]",
 			"def yn(a):",
-			"    print(\"YES\" if a else \"NO\")",
+			"    print(\"YES\" if a else \"NO\",flush=0)",
 			"",
-			"t=1",
 			"t=int(input())",
-			"for i in range(t):",
+			"for i in range(int(input())):",
 			"    n=int(input())",
-			"    l=get_list()"
+			"    l=get_list()",
+			""
 		],
 		"description": "small boilerplate"
 	},
