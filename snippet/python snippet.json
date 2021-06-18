@@ -1329,6 +1329,37 @@
 		],
 		"description": "cpp plag remove"
 	},
+	"count primes": {
+		"prefix": "sieve for large number",
+		"body": [
+			"a9=int((10**4.5))+100",
+			"prime = [True for i in range(a9 + 1)]",
+			"def SieveOfEratosthenes(n):",
+			"    p = 2",
+			"    while (p * p <= n):",
+			"        if (prime[p] == True):",
+			"            for i in range(p * p, n + 1, p):",
+			"                prime[i] = False",
+			"        p += 1",
+			"SieveOfEratosthenes(a9)",
+			"prime_number=[]",
+			"for i in range(2,a9):",
+			"    if prime[i]:",
+			"        prime_number.append(i)",
+			"",
+			"def countprimes(a):",
+			"    count=0",
+			"    for i in prime_number:",
+			"        while a%i==0:",
+			"            count+=1",
+			"            a//=i;",
+			"    if a>2:",
+			"        count+=1",
+			"    return count",
+			""
+		],
+		"description": "count primes"
+	},
 	"python plag remove": {
 		"prefix": "plag remove",
 		"body": [
