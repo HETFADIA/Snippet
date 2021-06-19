@@ -1360,7 +1360,7 @@
 		],
 		"description": "count primes"
 	},
-	"python plag remove": {
+	"plag remove": {
 		"prefix": "plag remove",
 		"body": [
 			"file = open('cf.py', 'r')",
@@ -1392,6 +1392,11 @@
 			"                out.write(\" \"*counter+string+\";\\n\")",
 			"            out.write(\" \"*counter)",
 			"            out.write(i)",
+			"        elif i.startswith('def'):",
+			"            out.write(\" \"*counter)",
+			"            out.write(i)",
+			"            out.write(';'+string)",
+			"            out.write(\"\\n\"+\" \"*counter+string+\";\")",
 			"        else:",
 			"            out.write(\" \"*counter+string+\";\")",
 			"            out.write(i)",
@@ -1403,7 +1408,7 @@
 			"    out.write('\\n')",
 			""
 		],
-		"description": "python plag remove"
+		"description": "plag remove"
 	},
 	"fast sieve": {
 		"prefix": "fast sieve",
