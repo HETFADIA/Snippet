@@ -1425,7 +1425,7 @@
 			"    def __init__(self,l=[]):",
 			"        self.parent = defaultdict(int)",
 			"        self.size = defaultdict(lambda :1)",
-			"        self.num_sets = len(l)",
+			"        self.num_sets = 0",
 			"        for i in l:",
 			"            self.add(i)",
 			"    def add(self,val):",
