@@ -449,6 +449,26 @@
 		],
 		"description": "small boilerplate"
 	},
+	"prime_factors": {
+		"prefix": "prime_factors",
+		"body": [
+			"def prime_factors(n):",
+			"    l = []",
+			"    while n % 2 == 0:",
+			"        l.append(2)",
+			"        n //= 2",
+			"    sqrta = int(sqrt(n))",
+			"",
+			"    for i in range(3, sqrta + 1, 2):",
+			"        while n % i == 0:",
+			"            n //= i",
+			"            l.append(i)",
+			"    if n > 2:",
+			"        l.append(n)",
+			"    return l"
+		],
+		"description": "prime_factors"
+	},
 	"infinite recursion": {
 		"prefix": "recursion",
 		"body": [
