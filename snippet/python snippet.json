@@ -796,6 +796,22 @@
 		],
 		"description": "discrete binary search"
 	},
+	"discrete binary search upper": {
+		"prefix": "discrete binary search upper",
+		"body": [
+			"def discrete_binary_search_upper(func, lo, hi):",
+			"    \"\"\" Locate the last value x s.t. func(x) = False within [lo, hi] \"\"\"",
+			"    while lo < hi:",
+			"        mi = lo + (hi - lo + 1) // 2",
+			"        if func(mi):",
+			"            hi = mi - 1",
+			"        else:",
+			"            lo = mi",
+			"",
+			"    return lo"
+		],
+		"description": "discrete binary search upper"
+	},
 	"count inversion": {
 		"prefix": "inversion count",
 		"body": [
