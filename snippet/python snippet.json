@@ -796,6 +796,30 @@
 		],
 		"description": "discrete binary search"
 	},
+	"RabinKarp": {
+		"prefix": "RabinKarp",
+		"body": [
+			"class RabinKarp:",
+			"    def __init__(self,s,k,p=10**9+7,d=26):",
+			"        hash=0",
+			"        self.pow=pow(d,k-1,p)",
+			"        self.hashlist=[0 for i in range(len(s))]",
+			"        for i in range(k):",
+			"            hash=(hash*d+s[i])%p",
+			"            self.hashlist[i]=hash",
+			"        for i in range(k,len(s)):",
+			"            hash=(d*(hash-s[i-k]*self.pow)+s[i])%p",
+			"            self.hashlist[i]=hash",
+			"    def query(self,start,k):",
+			"        return self.hashlist[start+k-1]",
+			"    def samestring(self,s,i,j,k):",
+			"        for counter in range(k):",
+			"            if s[i+counter]!=s[j+counter]:",
+			"                return 0",
+			"        return 1"
+		],
+		"description": "RabinKarp"
+	},
 	"discrete binary search upper": {
 		"prefix": "discrete binary search upper",
 		"body": [
