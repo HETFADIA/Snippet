@@ -426,11 +426,22 @@
 		],
 		"description": "boilerplate"
 	},
+	"greatest gcd": {
+		"prefix": "greatest gcd",
+		"body": [
+			"def gcd(x, y):",
+			"    \"\"\"greatest common divisor of x and y\"\"\"",
+			"    while y:",
+			"        x, y = y, x % y",
+			"    return x"
+		],
+		"description": "greatest gcd"
+	},
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
 			"from collections import defaultdict, Counter,deque",
-			"from math import sqrt, log10, log2, log, gcd, floor, factorial",
+			"from math import sqrt, log10, log, floor, factorial",
 			"from bisect import bisect_left, bisect_right",
 			"from itertools import permutations,combinations",
 			"import sys, io, os",
