@@ -452,12 +452,9 @@
 			"inf = float('inf');",
 			"mod = 10 ** 9 + 7",
 			"def get_list(): return [int(i) for i in input().split()]",
-			"yn = lambda a: print(\"YES\" if a else \"NO\")",
+			"def yn(a): print(\"YES\" if a else \"NO\")",
 			"ceil = lambda a, b: (a + b - 1) // b",
-			"t=int(input())",
-			"for i in range(t):",
-			"    n=input().strip()",
-			"    print(max([int(i) for i in n]))"
+			""
 		],
 		"description": "small boilerplate"
 	},
