@@ -1947,14 +1947,15 @@
 		],
 		"description": "count primes"
 	},
-	"plag remove": {
-		"prefix": "plag remove",
+	"python plag remove": {
+		"prefix": "python plag remove",
 		"body": [
 			"file = open('cf.py', 'r')",
 			"out = open('cf2.py', 'w')",
 			"string = \"ali=0\"",
 			"for i in file:",
-			"    i = i[:-1]",
+			"    if i and i[-1]=='\\n':",
+			"        i = i[:-1]",
 			"",
 			"    if i and i[-1] == \";\":",
 			"        i = i[:-1]",
@@ -1995,7 +1996,7 @@
 			"    out.write('\\n')",
 			""
 		],
-		"description": "plag remove"
+		"description": "python plag remove"
 	},
 	"fast sieve": {
 		"prefix": "fast sieve",
