@@ -91,3 +91,48 @@ class Trie:
                 else:
                     q.append(current_dict[j])
         return counter
+    def regex_search(self,word):
+        """searches if word is present in trie word may contain regex ."""
+        current_dict=self.root
+        return self.dfs_search(current_dict,word,0)
+    def dfs_search(self,current_dict,word,indexa):
+        if type(current_dict)==bool:
+            return 0
+        if indexa==len(word):
+            return "_end_" in current_dict
+        if word[indexa]=='.':
+            for i in current_dict:
+                if self.dfs_search(current_dict[i],word,indexa+1):
+                    return 1
+            return 0
+        else:
+            if word[indexa] in current_dict:
+                return self.dfs_search(current_dict[word[indexa]],word,indexa+1)
+    def max_xor(self,a,bits=32):
+        current_dict=self.root
+        ans=[]
+        for indexa in range(bits):
+            if a[indexa] == '0':
+                current_bit = '1'
+            else:
+                current_bit = '0'
+            if current_bit in current_dict:
+                current_dict=current_dict[current_bit]
+                ans.append(current_bit)
+            else:
+                current_dict=current_dict[a[indexa]]
+                ans.append(a[indexa])
+        return ''.join(ans)
+    def bit_binary(self,a):
+        return '{:032b}'.format(a)
+    def get_max_xor_array(self,arr):
+        arrbits = [self.bit_binary(i) for i in arr]
+        n = len(arr)
+        for i in arrbits:
+            self.add(i)
+        maxans = 0
+        for i in range(n):
+            string = self.max_xor(arrbits[i])
+            num = int(string, 2)
+            maxans = max(maxans, num ^ arr[i])
+        return maxans
