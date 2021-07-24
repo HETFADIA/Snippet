@@ -2114,6 +2114,14 @@
 		],
 		"description": "Trie made by me"
 	},
+	"32 bit binary": {
+		"prefix": "32 bit binary",
+		"body": [
+			"def bit_binary(a):",
+			"    return '{:032b}'.format(a)"
+		],
+		"description": "32 bit binary"
+	},
 	"fast sieve": {
 		"prefix": "fast sieve",
 		"body": [
