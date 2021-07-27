@@ -2111,6 +2111,24 @@
 		],
 		"description": "google"
 	},
+	"subset_sum": {
+		"prefix": "subset_sum",
+		"body": [
+			"lld subset_sum(vector<int> &v)",
+			"{",
+			"    const int large = 1e6 + 1;",
+			"    bitset<large> b;",
+			"    b[0] = 1;",
+			"    for (auto i : v)",
+			"    {",
+			"        b |= (b << i);",
+			"    }",
+			"    int counter = b.count();",
+			"    return counter;",
+			"}"
+		],
+		"description": "subset_sum"
+	},
 	"reverse iterator": {
 		"prefix": "reverse iterator",
 		"body": [
