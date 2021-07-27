@@ -547,6 +547,19 @@
 		],
 		"description": "zfunction"
 	},
+	"subset_sum": {
+		"prefix": "subset_sum",
+		"body": [
+			"def subset_sum(l):",
+			"    s = {0}",
+			"    for i in l:",
+			"        temp = []",
+			"        for j in s: temp.append(j + i)",
+			"        for j in temp: s.add(j)",
+			"    return s"
+		],
+		"description": "subset_sum"
+	},
 	"fastio template pypy2": {
 		"prefix": "fastio template pypy2",
 		"body": [
