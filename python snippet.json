@@ -700,6 +700,30 @@
 		],
 		"description": "maximum_area_in_rectangle"
 	},
+	"maximum_len_square_matrix": {
+		"prefix": "maximum_len_square_matrix",
+		"body": [
+			"def maximum_len_square_matrix(mat,num=1):",
+			"    n=len(mat)",
+			"    m=len(mat[0])",
+			"    maxa=0",
+			"    for i in range(n):",
+			"        for j in range(m):",
+			"            if i==0 or j==0:",
+			"                if mat[i][j]==num:",
+			"                    mat[i][j]=1",
+			"                else:",
+			"                    mat[i][j]=0",
+			"            elif mat[i][j]!=num:",
+			"                mat[i][j]=0",
+			"            else:",
+			"                mat[i][j]=min(mat[i-1][j],mat[i-1][j-1],mat[i][j-1])+1",
+			"",
+			"            maxa=max(maxa,mat[i][j])",
+			"    return maxa"
+		],
+		"description": "maximum_len_square_matrix"
+	},
 	"fastio template pypy2": {
 		"prefix": "fastio template pypy2",
 		"body": [
