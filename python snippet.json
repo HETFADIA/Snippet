@@ -560,6 +560,20 @@
 		],
 		"description": "subset_sum"
 	},
+	"subset_sum_count": {
+		"prefix": "subset_sum_count",
+		"body": [
+			"def subset_sum_count(l):",
+			"    s = defaultdict(int)",
+			"    s[0]=1",
+			"    for i in l:",
+			"        temp = []",
+			"        for j in s: temp.append([j + i,s[j]])",
+			"        for j,counter in temp: s[j]+=counter",
+			"    return s"
+		],
+		"description": "subset_sum_count"
+	},
 	"fastio template pypy2": {
 		"prefix": "fastio template pypy2",
 		"body": [
