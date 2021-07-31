@@ -728,6 +728,17 @@
 		],
 		"description": "maximum_area_in_rectangle"
 	},
+	"cmp_to_key": {
+		"prefix": "cmp_to_key",
+		"body": [
+			"from functools import cmp_to_key",
+			"def fun(a,b):",
+			"    if a%2==b%2:",
+			"        return 0",
+			"    return a-b"
+		],
+		"description": "cmp_to_key"
+	},
 	"LCSubstr": {
 		"prefix": "LCSubstr",
 		"body": [
