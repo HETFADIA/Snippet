@@ -728,6 +728,14 @@
 		],
 		"description": "maximum_area_in_rectangle"
 	},
+	"LCSubstr": {
+		"prefix": "LCSubstr",
+		"body": [
+			"from difflib import SequenceMatcher",
+			"LCSubstr = lambda a, b: SequenceMatcher(None, a, b).find_longest_match(0, len(a), 0, len(b))"
+		],
+		"description": "LCSubstr"
+	},
 	"multi_source_bfs": {
 		"prefix": "multi_source_bfs",
 		"body": [
