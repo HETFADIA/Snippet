@@ -782,6 +782,13 @@
 		],
 		"description": "gcd longest segment slow"
 	},
+	"getlist": {
+		"prefix": "getlist",
+		"body": [
+			"[int(i) for i in input().split()]"
+		],
+		"description": "getlist"
+	},
 	"range query optimised": {
 		"prefix": "range query optimised",
 		"body": [
