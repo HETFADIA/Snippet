@@ -2111,7 +2111,7 @@
 		],
 		"description": "google"
 	},
-	"rangequery": {
+	"range query sparce table": {
 		"prefix": "rangequery",
 		"body": [
 			"template <typename Node>",
@@ -2122,9 +2122,9 @@
 			"    int n;",
 			"    int maxLog;",
 			"    vector<int> a;",
-			"    SparseTable(int n1, vector<int> &arr)",
+			"    SparseTable(vector<int> &arr)",
 			"    {",
-			"        n = n1;",
+			"        n = arr.size();",
 			"        a = arr;",
 			"        table.resize(n);",
 			"        logValues.resize(n + 1);",
@@ -2195,7 +2195,7 @@
 			"    }",
 			"};"
 		],
-		"description": "rangequery"
+		"description": "range query sparce table"
 	},
 	"z_function": {
 		"prefix": "z_function",
