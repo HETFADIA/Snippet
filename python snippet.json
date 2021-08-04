@@ -823,6 +823,43 @@
 		],
 		"description": "longestincreasingsubsequence"
 	},
+	"stack end and front": {
+		"prefix": "stack end and front",
+		"body": [
+			"def end_array(l,cmp=lambda a,b:a<b):",
+			"    \"\"\"",
+			"    end[i]-front[i] gives the answer",
+			"    a<b lambda for higher index stack",
+			"    \"\"\"",
+			"    n = len(l)",
+			"    stack = []",
+			"    forward = [0] * n",
+			"    for i in range(len(l) - 1, -1, -1):",
+			"        while len(stack) and cmp(l[stack[-1]] , l[i]):",
+			"            stack.pop()",
+			"        if len(stack) == 0:",
+			"            forward[i] = len(l)",
+			"        else:",
+			"            forward[i] = stack[-1]",
+			"        stack.append(i)",
+			"    return forward",
+			"",
+			"def front_array(l,cmp=lambda a,b:a<b):",
+			"    n = len(l)",
+			"    stack = []",
+			"    backward = [0] * n",
+			"    for i in range(len(l)):",
+			"        while len(stack) and cmp(l[stack[-1]] , l[i]):",
+			"            stack.pop()",
+			"        if len(stack) == 0:",
+			"            backward[i] = 0",
+			"        else:",
+			"            backward[i] = stack[-1]+1",
+			"        stack.append(i)",
+			"    return backward"
+		],
+		"description": "stack end and front"
+	},
 	"range query optimised": {
 		"prefix": "range query optimised",
 		"body": [
