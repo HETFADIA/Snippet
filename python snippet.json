@@ -860,13 +860,14 @@
 		],
 		"description": "stack end and front"
 	},
-	"range query optimised": {
-		"prefix": "range query optimised",
+	"rangequery": {
+		"prefix": "rangequery",
 		"body": [
 			"class RangeQuery:",
-			"    def __init__(self, data, func=min):",
+			"    def __init__(self, data, func=min,default=0):",
 			"        self.func = func",
 			"        self._data = _data = [list(data)]",
+			"        self.defualt=default",
 			"        i, n = 1, len(_data[0])",
 			"        while 2 * i <= n:",
 			"            prev = _data[-1]",
@@ -875,6 +876,15 @@
 			"        self.bit_len=[0 for i in range(n+1)]",
 			"        for i in range(1,n+1):",
 			"            self.bit_len[i]=self.bit_len[i//2]+1",
+			"        print(self.bit_len)",
+			"    def query_normal(self,start,stop):",
+			"        \"\"\"func of data[start, stop) for mutable\"\"\"",
+			"        ans=self.defualt",
+			"        for j in range(self.bit_len[stop-start]-1,-1,-1):",
+			"            if (1<<j)<=stop-start:",
+			"                ans=self.func(ans,self._data[j][start])",
+			"                start+=(1<<j)",
+			"        return ans",
 			"",
 			"    def query(self, start, stop):",
 			"        \"\"\"func of data[start, stop)\"\"\"",
@@ -884,7 +894,7 @@
 			"    def __getitem__(self, idx):",
 			"        return self._data[0][idx]"
 		],
-		"description": "range query optimised"
+		"description": "rangequery"
 	},
 	"cmp_to_key": {
 		"prefix": "cmp_to_key",
