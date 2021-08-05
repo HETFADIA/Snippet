@@ -1726,8 +1726,8 @@
 		],
 		"description": "google"
 	},
-	"range query sparce table": {
-		"prefix": "rangequery",
+	"sparcetable range query": {
+		"prefix": "sparcetable range query",
 		"body": [
 			"template <typename Node>",
 			"struct SparseTable",
@@ -1743,8 +1743,7 @@
 			"        a = arr;",
 			"        table.resize(n);",
 			"        logValues.resize(n + 1);",
-			"        maxLog = log2(n);",
-			"        logValues[1] = 0;",
+			"        maxLog = msb(n);",
 			"        for (int i = 2; i <= n; i++)",
 			"        {",
 			"            logValues[i] = logValues[i / 2] + 1;",
@@ -1795,9 +1794,9 @@
 			"};",
 			"struct Node1",
 			"{",
-			"    int val; // store more info if required",
+			"    int val;",
 			"    Node1()",
-			"    { // Identity Element",
+			"    {",
 			"        val = 0;",
 			"    }",
 			"    Node1(int v)",
@@ -1810,7 +1809,7 @@
 			"    }",
 			"};"
 		],
-		"description": "range query sparce table"
+		"description": "sparcetable range query"
 	},
 	"primeFactors brute force": {
 		"prefix": "primeFactors brute force",
