@@ -896,6 +896,30 @@
 		],
 		"description": "RangeQuery"
 	},
+	"palindrome_dp": {
+		"prefix": "palindrome_dp",
+		"body": [
+			"def palind_dp(s):",
+			"    n=len(s)",
+			"    dp=[[0 for i in range(n+1)] for j in range(n+1)]",
+			"    for i in range(n):",
+			"        iter1=i",
+			"        iter2=i",
+			"        while iter1>=0 and iter2<n and s[iter1]==s[iter2]:",
+			"            dp[iter1][iter2+1]=1",
+			"            iter1-=1",
+			"            iter2+=1",
+			"        iter1=i",
+			"        iter2=i+1",
+			"        while iter1>=0 and iter2<n and s[iter1]==s[iter2]:",
+			"            dp[iter1][iter2+1]=1",
+			"            iter1-=1",
+			"            iter2+=1",
+			"",
+			"    return dp"
+		],
+		"description": "palindrome_dp"
+	},
 	"cmp_to_key": {
 		"prefix": "cmp_to_key",
 		"body": [
