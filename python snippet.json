@@ -1004,6 +1004,33 @@
 		],
 		"description": "ncr_pypy"
 	},
+	"binary_lifting": {
+		"prefix": "binary_lifting",
+		"body": [
+			"class binary_lifting:",
+			"    def __init__(self,l,maxn=61):",
+			"        \"\"\"one based\"\"\"",
+			"        n=len(l)",
+			"        self.maxn=maxn",
+			"        self.dp = [[0 for i in range(maxn)] for i in range(n + 1)]",
+			"        for i in range(n):",
+			"            self.dp[i + 1][0] = l[i]",
+			"        for theta in range(maxn):",
+			"            for i in range(n):",
+			"                par = self.dp[i + 1][theta]",
+			"                if theta + 1 < maxn:",
+			"                    self.dp[i + 1][theta + 1] = self.dp[par][theta]",
+			"    def query(self,k,start=1):",
+			"        for i in range(self.maxn):",
+			"            theta = 1<<i",
+			"            if k<theta:",
+			"                break",
+			"            if k & theta:",
+			"                start = self.dp[start][i]",
+			"        return start"
+		],
+		"description": "binary_lifting"
+	},
 	"palindrome_dp": {
 		"prefix": "palindrome_dp",
 		"body": [
