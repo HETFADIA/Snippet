@@ -440,18 +440,12 @@
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
-			"from collections import defaultdict, Counter,deque",
-			"from math import sqrt, log10, log, floor, factorial",
-			"from bisect import bisect_left, bisect_right",
-			"from itertools import permutations,combinations",
 			"import sys, io, os",
 			"input = sys.stdin.readline",
 			"# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
-			"# print=sys.stdout.write",
 			"# sys.setrecursionlimit(10000)",
-			"inf = float('inf');",
+			"inf = float('inf')",
 			"mod = 10 ** 9 + 7",
-			"def get_list(): return [int(i) for i in input().split()]",
 			"def yn(a): print(\"YES\" if a else \"NO\")",
 			"ceil = lambda a, b: (a + b - 1) // b",
 			""
@@ -1047,13 +1041,13 @@
 	"libraries": {
 		"prefix": "libraries",
 		"body": [
-		  "from collections import defaultdict, Counter,deque",
-		  "from math import sqrt, log10, log, floor, factorial",
-		  "from bisect import bisect_left, bisect_right",
-		  "from itertools import permutations,combinations"
+			"from collections import defaultdict, Counter,deque",
+			"from math import sqrt, log10, log, floor, factorial",
+			"from bisect import bisect_left, bisect_right",
+			"from itertools import permutations,combinations"
 		],
 		"description": "libraries"
-	  },
+	},
 	"palindrome_dp": {
 		"prefix": "palindrome_dp",
 		"body": [
