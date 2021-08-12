@@ -1004,8 +1004,8 @@
 		],
 		"description": "ncr_pypy"
 	},
-	"binary_lifting": {
-		"prefix": "binary_lifting",
+	"BinaryLifting": {
+		"prefix": "BinaryLifting",
 		"body": [
 			"class binary_lifting:",
 			"    def __init__(self,l,maxn=61,one_based=1):",
@@ -1015,11 +1015,10 @@
 			"        self.dp = [[0 for j in range(maxn)] for i in range(n + 1)]",
 			"        for i in range(n):",
 			"            self.dp[i + one_based][0] = l[i]",
-			"        for theta in range(maxn):",
+			"        for theta in range(maxn-1):",
 			"            for i in range(n):",
 			"                par = self.dp[i + one_based][theta]",
-			"                if theta + 1 < maxn:",
-			"                    self.dp[i + one_based][theta + 1] = self.dp[par][theta]",
+			"                self.dp[i + one_based][theta + 1] = self.dp[par][theta]",
 			"    def query(self,k,start=1):",
 			"        \"\"\"start node in 1<=x<=n if one_based else 0<=x<n \"\"\"",
 			"        for i in range(self.maxn):",
@@ -1043,7 +1042,7 @@
 			"                b=self.dp[b][i]",
 			"        return self.dp[a][0]"
 		],
-		"description": "binary_lifting"
+		"description": "BinaryLifting"
 	},
 	"palindrome_dp": {
 		"prefix": "palindrome_dp",
