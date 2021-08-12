@@ -1004,15 +1004,15 @@
 		],
 		"description": "ncr_pypy"
 	},
-	"BinaryLifting": {
-		"prefix": "BinaryLifting",
+	"binary_lifting": {
+		"prefix": "binary_lifting",
 		"body": [
-			"class binary_lifting:",
+			"class BinaryLifting:",
 			"    def __init__(self,l,maxn=61,one_based=1):",
 			"        \"\"\"l is an array from 0 to n-1 and one_based depends on l[i]\"\"\"",
 			"        self.n=n=len(l)",
 			"        self.maxn=maxn",
-			"        self.dp = [[0 for j in range(maxn)] for i in range(n + 1)]",
+			"        self.dp = [[n for j in range(maxn)] for i in range(n + 1)]",
 			"        for i in range(n):",
 			"            self.dp[i + one_based][0] = l[i]",
 			"        for theta in range(maxn-1):",
@@ -1042,7 +1042,7 @@
 			"                b=self.dp[b][i]",
 			"        return self.dp[a][0]"
 		],
-		"description": "BinaryLifting"
+		"description": "binary_lifting"
 	},
 	"palindrome_dp": {
 		"prefix": "palindrome_dp",
