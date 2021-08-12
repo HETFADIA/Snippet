@@ -1044,6 +1044,16 @@
 		],
 		"description": "binary_lifting"
 	},
+	"libraries": {
+		"prefix": "libraries",
+		"body": [
+		  "from collections import defaultdict, Counter,deque",
+		  "from math import sqrt, log10, log, floor, factorial",
+		  "from bisect import bisect_left, bisect_right",
+		  "from itertools import permutations,combinations"
+		],
+		"description": "libraries"
+	  },
 	"palindrome_dp": {
 		"prefix": "palindrome_dp",
 		"body": [
