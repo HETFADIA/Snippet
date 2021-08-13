@@ -1101,6 +1101,30 @@
 		],
 		"description": "lca_order_1"
 	},
+	"unionfind defaultdict": {
+		"prefix": "unionfind defaultdict",
+		"body": [
+			"class UnionFind:",
+			"    def __init__(self, l=[]):",
+			"        self.parent = dict()",
+			"        for i in l:",
+			"            self.add(i)",
+			"    def add(self,a):",
+			"        if a not in self.parent:",
+			"            self.parent[a]=a",
+			"    def find(self, a):",
+			"        acopy = a",
+			"        while a != self.parent[a]:",
+			"            a = self.parent[a]",
+			"        while acopy != a:",
+			"            self.parent[acopy], acopy = a, self.parent[acopy]",
+			"        return a",
+			"",
+			"    def union(self, a, b):",
+			"        self.parent[self.find(b)] = self.find(a)"
+		],
+		"description": "unionfind defaultdict"
+	},
 	"unionfind": {
 		"prefix": "unionfind",
 		"body": [
