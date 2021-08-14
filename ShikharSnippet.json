@@ -1,7 +1,83 @@
 {
 	//use snippet-generator.app.com
 	//, after a snippet
-	"SparseTable<Node1> sp = SparseTable<Node1>(n, a);sp.queryIdempotent(1, 1).val;": {
+	"get kth ancestor by supplying parent array": {
+		"prefix": "binarylifting",
+		"body": [
+		  "class TreeAncestor {",
+		  "public:",
+		  "",
+		  "    //pay close attention if someone doesn't have a parent then put parent[i] = -1;",
+		  "    vector<vector<int>> dp;",
+		  "    TreeAncestor(int n, vector<int>& parent, int k) {",
+		  "        int LOGMAX = log2(k) + 1;",
+		  "        dp.resize(n + 1, vector<int>(LOGMAX + 1));",
+		  "        for(int i = 1; i <= LOGMAX; i++){",
+		  "            vector<int> temp_parent = parent;",
+		  "            for(int j = 0; j < n; j++){",
+		  "                dp[j][i] = temp_parent[j];",
+		  "                if(temp_parent[j] != -1)",
+		  "                    parent[j] = temp_parent[temp_parent[j]];",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "    ",
+		  "    int getKthAncestor(int node, int k) {",
+		  "        int ans = node;",
+		  "        for(int i = 0; i < 60; i++){",
+		  "            if(k & (1ll << i)){",
+		  "                ans = dp[ans][i + 1];",
+		  "            }",
+		  "            //uncomment this if parent[i] = -1 for any node",
+		  "            // if(ans == -1) return -1;",
+		  "        }",
+		  "        return ans;",
+		  "    }",
+		  "};"
+		],
+		"description": "get kth ancestor by supplying parent array"
+	  },
+	"LCS + common string": {
+		"prefix": "lcs",
+		"body": [
+		  "int LCS(string &a, string &b){",
+		  "    ",
+		  "    int n = a.size(), m = b.size();",
+		  "    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));",
+		  "    ",
+		  "    for(int i = 1; i <= n; i++){",
+		  "        for(int j = 1; j <= m; j++){",
+		  "            if(a[i-1] == b[j-1]) dp[i][j] = max(dp[i][j], dp[i-1][j-1] + 1);",
+		  "            else dp[i][j] = max(dp[i-1][j], dp[i][j-1]);",
+		  "        }",
+		  "    }",
+		  "    //length of the subsequence",
+		  "    // cout << dp[n][m] << endl;",
+		  "    return dp[n][m];",
+		  "    ",
+		  "    //use below when needed",
+		  "    string ans;",
+		  "    int l = n-1, r = m-1;",
+		  "    while(l >= 0 && r >= 0){",
+		  "        if(a[l] == b[r]){",
+		  "            ans.pb(a[l]);",
+		  "            --l; --r;",
+		  "        }",
+		  "        else if(dp[l][r+1] >= dp[l+1][r]){",
+		  "            --l;",
+		  "        }",
+		  "        else{",
+		  "            --r;",
+		  "        }",
+		  "    }",
+		  "    reverse(all(ans));",
+		  "    //ans contains the common subsequence as a string",
+		  "    // cout << ans << endl;",
+		  "}"
+		],
+		"description": "LCS + common string"
+	  },
+	"SparseTable<Node1> sp = SparseTable<Node1>(a);sp.queryIdempotent(1, 1).val;": {
 		"prefix": "sparse",
 		"body": [
 		  "template<typename Node>",
@@ -11,8 +87,8 @@
 		  " int n;",
 		  " int maxLog;",
 		  " vector<int> a;",
-		  " SparseTable(int n1, vector<int> &arr) {",
-		  "  n = n1;",
+		  " SparseTable(vector<int> &arr) {",
+		  "  n = arr.size();",
 		  "  a = arr;",
 		  "  table.resize(n);",
 		  "  logValues.resize(n + 1);",
@@ -67,7 +143,7 @@
 		  " }",
 		  "};"
 		],
-		"description": "SparseTable<Node1> sp = SparseTable<Node1>(n, a);sp.queryIdempotent(1, 1).val;"
+		"description": "SparseTable<Node1> sp = SparseTable<Node1>(a);sp.queryIdempotent(1, 1).val;"
 	  },
 	"rolling hash for k length subarray": {
 		"prefix": "rolling",
