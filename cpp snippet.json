@@ -333,8 +333,8 @@
 		],
 		"description": "Trie"
 	},
-	"Union find disjoint set union": {
-		"prefix": "Union find disjoint set union",
+	"union find disjoint set": {
+		"prefix": "union find disjoint set",
 		"body": [
 			"class UnionFind",
 			"{",
@@ -345,7 +345,7 @@
 			"    UnionFind(int n)",
 			"        : par(n), sizes(n, 1)",
 			"    {",
-			"        num_sets = 0;",
+			"        num_sets = n;",
 			"        for (int i = 0; i < n; i++)",
 			"        {",
 			"            par[i] = i;",
@@ -406,7 +406,7 @@
 			"    }",
 			"};"
 		],
-		"description": "Union find disjoint set union"
+		"description": "union find disjoint set"
 	},
 	"bfs": {
 		"prefix": "bfs",
