@@ -437,22 +437,41 @@
 		],
 		"description": "greatest gcd"
 	},
+	"euclidean division modular": {
+		"prefix": "euclidean division modular",
+		"body": [
+			"def modInverse(b, m):",
+			"    g = gcd(b, m)",
+			"    if (g != 1):",
+			"        return -1",
+			"    else:",
+			"        return pow(b, m - 2, m)",
+			"def modDivide(a, b, m):",
+			"    a = a % m",
+			"    inv = modInverse(b, m)",
+			"    if (inv == -1):",
+			"        return inf",
+			"    else:",
+			"        return (inv*a)%m"
+		],
+		"description": "euclidean division modular"
+	},
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
-		  "",
-		  "import sys, io, os",
-		  "input = sys.stdin.readline",
-		  "# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
-		  "# sys.setrecursionlimit(10000)",
-		  "inf = float('inf')",
-		  "mod = 10 ** 9 + 7",
-		  "def yn(a): print(\"YES\" if a else \"NO\")",
-		  "ceil = lambda a, b: (a + b - 1) // b",
-		  ""
+			"",
+			"import sys, io, os",
+			"input = sys.stdin.readline",
+			"# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
+			"# sys.setrecursionlimit(10000)",
+			"inf = float('inf')",
+			"mod = 10 ** 9 + 7",
+			"def yn(a): print(\"YES\" if a else \"NO\")",
+			"ceil = lambda a, b: (a + b - 1) // b",
+			""
 		],
 		"description": "small boilerplate"
-	  },
+	},
 	"fastio template": {
 		"prefix": "fastio template",
 		"body": [
