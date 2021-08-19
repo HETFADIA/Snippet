@@ -440,18 +440,19 @@
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
-			"import sys, io, os",
-			"input = sys.stdin.readline",
-			"# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
-			"# sys.setrecursionlimit(10000)",
-			"inf = float('inf')",
-			"mod = 10 ** 9 + 7",
-			"def yn(a): print(\"YES\" if a else \"NO\")",
-			"ceil = lambda a, b: (a + b - 1) // b",
-			""
+		  "",
+		  "import sys, io, os",
+		  "input = sys.stdin.readline",
+		  "# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
+		  "# sys.setrecursionlimit(10000)",
+		  "inf = float('inf')",
+		  "mod = 10 ** 9 + 7",
+		  "def yn(a): print(\"YES\" if a else \"NO\")",
+		  "ceil = lambda a, b: (a + b - 1) // b",
+		  ""
 		],
 		"description": "small boilerplate"
-	},
+	  },
 	"fastio template": {
 		"prefix": "fastio template",
 		"body": [
