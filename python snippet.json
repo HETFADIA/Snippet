@@ -478,6 +478,23 @@
 		],
 		"description": "findiso google"
 	},
+	"buysellstock": {
+		"prefix": "buysellstock",
+		"body": [
+			"def buysellstock(p,k):",
+			"    n=len(p)",
+			"    if n==0 or k==0:",
+			"        return 0",
+			"    buy=[-inf for i in range(k)]",
+			"    sell=[0 for i in range(k)]",
+			"    for price in p:",
+			"        for i in range(k):",
+			"            buy[i]=max(buy[i],(sell[i-1] if i>0 else 0)-price)",
+			"            sell[i]=max(sell[i],buy[i]+price)",
+			"    return sell[-1]"
+		],
+		"description": "buysellstock"
+	},
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
