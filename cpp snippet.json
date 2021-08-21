@@ -55,6 +55,7 @@
 			"#define dll(x) x.begin(), x.end(), greater<lld>()",
 			"#define vect(x, n) vector<lld> x(n, 0);",
 			"#define vi vector<int>",
+			"#define vl vector<lld>",
 			"#define umll unordered_map<lld, lld>",
 			"#define usl unordered_set<lld>",
 			"#define mll map<lld, lld>",
