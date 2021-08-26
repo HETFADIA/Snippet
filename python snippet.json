@@ -1724,6 +1724,42 @@
 		],
 		"description": "isprimedeterminstic"
 	},
+	"is_prime_deterministic_optimised": {
+		"prefix": "is_prime_deterministic_optimised",
+		"body": [
+			"class isprime:",
+			"    def __init__(self):",
+			"        self.primes=[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]",
+			"        self.primesdict={i:1 for i in self.primes}",
+			"    def check_composite(self,n,a,d,s):",
+			"        x=pow(a,d,n)",
+			"        if x==1 or x==n-1:",
+			"            return 0",
+			"        for r in range(s):",
+			"            x=(x*x)%n",
+			"            if x==n-1:",
+			"                return 0",
+			"        return 1",
+			"",
+			"    def millerrabin(self,n):",
+			"        if n<2:",
+			"            return 0",
+			"        if n in self.primesdict:",
+			"            return self.primesdict[n]",
+			"        r=0",
+			"        d=n-1",
+			"        while d&1==0:",
+			"            d>>=1",
+			"            r+=1",
+			"        for a in self.primes:",
+			"            if self.check_composite(n,a,d,r):",
+			"                self.primesdict[n]=0",
+			"                return 0",
+			"        self.primesdict[n]=1",
+			"        return 1"
+		],
+		"description": "is_prime_deterministic_optimised"
+	},
 	"segment tree": {
 		"prefix": "segment tree",
 		"body": [
