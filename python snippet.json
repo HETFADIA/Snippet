@@ -1760,6 +1760,33 @@
 		],
 		"description": "is_prime_deterministic_optimised"
 	},
+	"summation_n_k_mod": {
+		"prefix": "summation_n_k_mod",
+		"body": [
+			"def summation(n,k,mod):",
+			"    \"\"\"performs n**0+n**1 + n**2+n**3+n**k\"\"\"",
+			"    if k<=1:",
+			"        if k==0:",
+			"            return 1",
+			"        else:",
+			"            return (1+n)%mod",
+			"    suma=0",
+			"    if k&1==0:",
+			"        suma+=pow(n,k,mod)",
+			"        k-=1",
+			"    stored = pow(n, k // 2 + 1, mod)",
+			"    a1=summation(n,k//2,mod)",
+			"    b1=(stored*a1)%mod",
+			"    return (a1+b1+suma)%mod",
+			"def brute_force(n,k,mod):",
+			"    suma=0",
+			"    for j in range(k+1):",
+			"        suma+=pow(n,j,mod)",
+			"        suma%=mod",
+			"    print(suma)"
+		],
+		"description": "summation_n_k_mod"
+	},
 	"segment tree": {
 		"prefix": "segment tree",
 		"body": [
