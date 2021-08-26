@@ -159,6 +159,32 @@
 		],
 		"description": "boilerplate"
 	},
+	"summation_n_k_mod": {
+		"prefix": "summation_n_k_mod",
+		"body": [
+			"int summation(int n,int k,int p){",
+			"    // performs n**0 + n**1 + n**2 + n**3",
+			"    if(k<=1){",
+			"        if(k==0){",
+			"            return 1;",
+			"        }",
+			"        else{",
+			"            return (1+n)%p;",
+			"        }",
+			"    }",
+			"    int suma=0;",
+			"    if((k&1)==0){",
+			"        suma=mpow(n,k,p);",
+			"        k--;",
+			"    }",
+			"    int stored=mpow(n,k/2+1,p);",
+			"    int a1=summation(n,k/2,p);",
+			"    int b1=(stored*a1)%p;",
+			"    return (a1+b1+suma)%p;",
+			"}"
+		],
+		"description": "summation_n_k_mod"
+	},
 	"binary_lifting": {
 		"prefix": "binary_lifting",
 		"body": [
