@@ -1843,6 +1843,24 @@
 		],
 		"description": "segment tree"
 	},
+	"masks_all_masks_sos": {
+		"prefix": "masks_all_masks_sos",
+		"body": [
+			"class masks:",
+			"    def all_masks_sos(self,arr,lim=22):",
+			"        lim = 22",
+			"        maxbits = lim",
+			"        self.masks=masks = 1 << lim",
+			"        self.dp = [-1] * masks",
+			"        for i in arr:",
+			"            self.dp[i] = i",
+			"        for i in range(masks):",
+			"            for j in range(maxbits):",
+			"                if self.dp[i] == -1 and i & (1 << j):",
+			"                    self.dp[i] = self.dp[i - (1 << j)]"
+		],
+		"description": "masks_all_masks_sos"
+	},
 	"bitset": {
 		"prefix": "bitset",
 		"body": [
