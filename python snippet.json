@@ -1843,6 +1843,15 @@
 		],
 		"description": "segment tree"
 	},
+	"importrandom": {
+		"prefix": "importrandom",
+		"body": [
+			"import sys",
+			"sys.modules[\"hashlib\"] = sys.sha512 = sys",
+			"import random"
+		],
+		"description": "importrandom"
+	},
 	"masks_all_masks_sos": {
 		"prefix": "masks_all_masks_sos",
 		"body": [
