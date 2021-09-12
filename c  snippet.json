@@ -27,5 +27,24 @@
 			"#include <stddef.h>"
 		],
 		"description": "os libraries"
+	},
+	"thread_function": {
+		"prefix": "thread_function",
+		"body": [
+			"void thread_function(int sock_fd) {",
+			"    log_msg(\"SERVER: thread_function: starting\", false);",
+			"    char buffer[5000];",
+			"    memset(buffer, '\\0', sizeof(buffer));",
+			"    int count = read(sock_fd, buffer, sizeof(buffer));",
+			"    if (count > 0) {",
+			"        printf(\"SERVER: Received from client: %s\\n\", buffer);",
+			"        write(sock_fd, buffer, sizeof(buffer)); /* echo as confirmation */",
+			"    }",
+			"    close(sock_fd); /* break connection */",
+			"    log_msg(\"SERVER: thread_function: Done. Worker thread terminating.\", false);",
+			"    pthread_exit(NULL); // Must be the last statement",
+			"}"
+		],
+		"description": "thread_function"
 	}
 }
