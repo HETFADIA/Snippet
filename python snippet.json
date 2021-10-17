@@ -842,6 +842,20 @@
 		],
 		"description": "getlist"
 	},
+	"int(input())": {
+		"prefix": "iinp",
+		"body": [
+		  "int(input())"
+		],
+		"description": "int(input())"
+	},
+	"stringinp": {
+	"prefix": "stringinp",
+	"body": [
+		"list(input().strip())"
+	],
+	"description": "stringinp"
+	},
 	"longestincreasingsubsequence": {
 		"prefix": "longest increasing subsequence",
 		"body": [
