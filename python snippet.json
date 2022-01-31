@@ -1641,6 +1641,27 @@
 		],
 		"description": "lazy segment tree"
 	},
+	"knapsack": {
+		"prefix": "knapsack",
+		"body": [
+		  "def knapSack(W, wt, val, n):",
+		  "    K = [[0 for x in range(W + 1)] for x in range(n + 1)]",
+		  "",
+		  "    # Build table K[][] in bottom up manner",
+		  "    for i in range(1,n + 1):",
+		  "        for w in range(W + 1):",
+		  "",
+		  "            if wt[i - 1] <= w:",
+		  "                K[i][w] = max(val[i - 1]",
+		  "                              + K[i - 1][w - wt[i - 1]],",
+		  "                              K[i - 1][w])",
+		  "            else:",
+		  "                K[i][w] = K[i - 1][w]",
+		  "",
+		  "    return K[n][W]"
+		],
+		"description": "knapsack"
+	  },
 	"Lazy Segment Tree with mod": {
 		"prefix": "Lazy Segment Tree with mod",
 		"body": [
