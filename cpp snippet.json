@@ -184,7 +184,8 @@
 			"}"
 		],
 		"description": "summation_n_k_mod"
-	},
+	}
+	,
 	"segment tree": {
 		"prefix": "segment tree",
 		"body": [
@@ -230,6 +231,31 @@
 		],
 		"description": "segment tree"
 	  },
+	  "knapsack": {
+		"prefix": "knapsack",
+		"body": [
+		  "int knapSack(int W, vector<int> wt, vector<int> val, int n)",
+		  "{",
+		  "	int dp[W + 1];",
+		  "	memset(dp, 0, sizeof(dp));",
+		  "	for (int i = 1; i < n + 1; i++)",
+		  "	{",
+		  "		for (int w = W; w >= 0; w--)",
+		  "		{",
+		  "			if (wt[i - 1] <= w)",
+		  "			{",
+		  "				dp[w] = max(dp[w], dp[w - wt[i - 1]] + val[i - 1]);",
+		  "			}",
+		  "		}",
+		  "	}",
+		  "	return dp[W];",
+		  "}",
+		  ""
+		],
+		"description": "knapsack"
+	  } 
+	  ,
+
 	"binary_lifting": {
 		"prefix": "binary_lifting",
 		"body": [
