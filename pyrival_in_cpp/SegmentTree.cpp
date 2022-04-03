@@ -1,7 +1,10 @@
 template <typename Node>
 class SegmentTree
 {
-    public:
+    // vector<int> v = {3, 4, 5};
+    // SegmentTree<int> s1(v, 0, func);
+    // cout << s1.query(2, 3) << endl;
+public:
     Node self_default;
     Node (*func)(Node, Node);
     int self_len;
@@ -24,13 +27,65 @@ class SegmentTree
         int self_len = data.size();
         self_size = 1 << bit_lenght(self_len - 1);
         selfdata = vector<Node>(2 * self_size, _default);
+        for (int i = self_size; i < self_size + self_len; i++)
+        {
+            selfdata[i] = data[i - self_size];
+        }
         for (int i = self_size - 1; i >= 0; --i)
         {
-            selfdata[i] = func(selfdata[i + 1], selfdata[2 * i + 1]);
+            selfdata[i] = func(selfdata[2 * i], selfdata[2 * i + 1]);
         }
     }
+    void delitem(int idx, int value)
+    {
+        selfdata[idx] = self_default;
+    }
+    Node getitem(int idx, int value)
+    {
+        return selfdata[idx + self_size];
+    }
+    void setitem(int idx, int value)
+    {
+        idx += self_size;
+        selfdata[idx] = value;
+        idx >>= 1;
+        while (idx)
+        {
+            selfdata[idx] = func(selfdata[2 * idx], selfdata[2 * idx + 1]);
+            idx >>= 1;
+        }
+    }
+    Node query(int start, int stop)
+    {
+        // function of [start,stop) just like pyrival
+        start += self_size;
+        stop += self_size;
+        int res_left, res_right;
+        res_left = res_right = self_default;
+        while (start < stop)
+        {
+            if (start & 1)
+            {
+                res_left = func(res_left, selfdata[start]);
+                start += 1;
+            }
+            if (stop & 1)
+            {
+                stop -= 1;
+                res_right = func(selfdata[stop], res_right);
+            }
+            start >>= 1;
+            stop >>= 1;
+        }
+
+        return func(res_left, res_right);
+    }
+    void repr()
+    {
+        for (int i = 0; i < selfdata.size(); i++)
+        {
+            cout << selfdata[i] << " ";
+        }
+        cout << endl;
+    }
 };
-int func(int a, int b)
-{
-    return max(a, b);
-}
