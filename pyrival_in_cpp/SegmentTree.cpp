@@ -9,7 +9,7 @@ public:
     Node (*func)(Node, Node);
     int self_len;
     int self_size;
-    vector<int> selfdata;
+    vector<Node> selfdata;
     int bit_lenght(int a)
     {
         int ans = 0;
@@ -79,6 +79,10 @@ public:
         }
 
         return func(res_left, res_right);
+    }
+    int len()
+    {
+        return self_len;
     }
     void repr()
     {
