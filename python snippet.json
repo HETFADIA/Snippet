@@ -498,19 +498,29 @@
 	"small boilerplate": {
 		"prefix": "small boilerplate",
 		"body": [
-			"",
-			"import sys, io, os",
-			"input = sys.stdin.readline",
-			"# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
-			"# sys.setrecursionlimit(10000)",
-			"inf = float('inf')",
-			"mod = 10 ** 9 + 7",
-			"def yn(a): print(\"YES\" if a else \"NO\")",
-			"ceil = lambda a, b: (a + b - 1) // b",
-			""
+		  "from collections import defaultdict, Counter,deque",
+		  "from math import sqrt, log10, log, floor, factorial,gcd,ceil,log2",
+		  "from bisect import bisect_left, bisect_right,insort",
+		  "from itertools import permutations,combinations",
+		  "import sys, io, os",
+		  "input = sys.stdin.readline",
+		  "# input=io.BytesIO(os.read(0,os.fstat(0).st_size)).readline",
+		  "# sys.setrecursionlimit(10000)",
+		  "inf = float('inf')",
+		  "mod = 10 ** 9 + 7",
+		  "def yn(a): print(\"YES\" if a else \"NO\")",
+		  "cl = lambda a, b: (a + b - 1) // b",
+		  "sys.modules[\"hashlib\"] = sys.sha512 = sys",
+		  "from random import randint",
+		  "RANDOM = randint(1, 10 ** 9)",
+		  "class Wrapper(float):",
+		  "    def __init__(self, x):",
+		  "        int.__init__(x)",
+		  "    def __hash__(self):",
+		  "        return super(Wrapper, self).__hash__() ^ RANDOM"
 		],
 		"description": "small boilerplate"
-	},
+	  },
 	"fastio template": {
 		"prefix": "fastio template",
 		"body": [
