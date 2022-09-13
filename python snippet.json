@@ -499,6 +499,39 @@
 		],
 		"description": "kmp knuth morris pratt"
 	  },
+	  "lps array": {
+		"prefix": "lps array",
+		"body": [
+		  "def get_lps(search):",
+		  "    # lps array is the longest proper prefix which is also a suffix",
+		  "    lps_arr=[0 for i in range(len(search))]",
+		  "    # previous is the last longest proper prefix which is also a suffix",
+		  "    previous=0",
+		  "    # Here we are checking proper prefix so that we start with the index 1",
+		  "    # as the prefix can't be itself",
+		  "    curr_index=1",
+		  "    while curr_index<len(lps_arr):",
+		  "        if search[curr_index]==search[previous]:",
+		  "            \"\"\"This means that we have found a match for the last longest lps",
+		  "            and the current prefix",
+		  "            Thus we update the lps array\"\"\"",
+		  "            previous+=1",
+		  "            lps_arr[curr_index]=previous",
+		  "            curr_index+=1",
+		  "        elif previous==0:",
+		  "            \"\"\"This means that we have not found a match for the current prefix with the",
+		  "            last lps.",
+		  "            As previous=0 then there does not exist previous longest lps.\"\"\"",
+		  "            # no lps[curr index] exist so lps[curr_index]=0",
+		  "            lps_arr[curr_index]=0",
+		  "            curr_index+=1",
+		  "        else:",
+		  "            # we replace current_index",
+		  "            previous=lps_arr[previous-1]",
+		  "    return lps_arr"
+		],
+		"description": "lps array"
+	  },
 	"findiso google": {
 		"prefix": "findiso google",
 		"body": [
